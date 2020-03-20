@@ -1,0 +1,25 @@
+$white: #fff !default;
+$black: #000 !default;
+
+$primary: #40BFBF !default;
+$gray-light: #E5E5E5 !default;
+$gray-medium: #BDBDBD !default;
+$gray-bold: #808080 !default;
+
+$font-size-12: 12px !default;
+$font-size-14: 14px !default;
+$font-size-16: 16px !default;
+$font-size-18: 18px !default;
+
+$font-weight-light: 300 !default;
+$font-weight-regular: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-bold: 700 !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;

@@ -1,0 +1,305 @@
+@import "../../styles/variaveis.scss";
+
+.container {
+  contain: content;
+}
+
+.header {
+  background-color: $primary;
+  padding: 2vh 5vw 2vh 5vw;
+}
+
+.header-shadow {
+  box-shadow: 0px 15px 20px 20px rgba(0, 0, 0, 0.17);
+}
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+  background-color: $gray-light;
+  padding: 2vh 2vw 2vh 2vw;
+
+  &-flex {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    width: 55vw;
+
+    > span:first-child {
+      color: #858bff;
+      padding: 5px 0px 0px 5px;
+    }
+
+    > span:nth-child(2) {
+      padding: 5px 5px 25px 5px;
+    }
+
+    &-button {
+      padding: 0px 0px 0px 5px;
+
+      > button {
+        border: none;
+        border-radius: 6px;
+        background: #424cd6;
+        color: $white;
+        height: 35px;
+      }
+    }
+  }
+
+  .img-bg {
+    width: 45vw;
+  }
+}
+
+.content-prototype {
+  background: $white;
+}
+
+.screen {
+  text-align: center;
+
+  &-img {
+    padding: 5px 5px 5px 5px;
+  }
+
+  &-descriptions {
+    padding: 25px;
+    text-align: justify;
+
+    > span:first-child {
+      font-weight: $font-weight-bold;
+    }
+
+    > p {
+      padding-top: 15px;
+    }
+  }
+}
+
+.logo {
+  padding-right: 5px;
+}
+
+.icon {
+  color: $white;
+  border: 1px solid $white;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    &-span {
+      &-experimente {
+        display: none;
+      }
+
+      &-login {
+        display: none;
+      }
+    }
+  }
+
+  .content {
+    &-container {
+      > span:first-child {
+        font-size: $font-size-16;
+      }
+
+      > span:nth-child(2) {
+        font-size: 25px;
+      }
+
+      &-button {
+        > button {
+          width: 25vw;
+        }
+      }
+    }
+
+    .img-bg {
+      > img {
+        width: 40vw;
+      }
+    }
+  }
+
+  .screen {
+    &-img {
+      width: 80vw;
+    }
+
+    &-descriptions {
+      > span:first-child {
+        font-size: $font-size-18;
+      }
+
+      > p {
+        font-size: $font-size-14;
+      }
+    }
+  }
+
+  .icon {
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .header {
+    &-span {
+      &-experimente {
+        display: none;
+      }
+
+      &-login {
+        display: none;
+      }
+    }
+  }
+
+  .content {
+    &-container {
+      > span:first-child {
+        font-size: $font-size-18;
+      }
+
+      > span:nth-child(2) {
+        font-size: 32px;
+      }
+
+      &-button {
+        > button {
+          width: 20vw;
+        }
+      }
+    }
+
+    .img-bg {
+      > img {
+        width: 40vw;
+      }
+    }
+  }
+
+  .screen {
+    &-img {
+      width: 80vw;
+    }
+
+    &-descriptions {
+      > span:first-child {
+        font-size: 20px;
+      }
+
+      > p {
+        font-size: $font-size-16;
+      }
+    }
+  }
+
+  .icon {
+    font-size: 32px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .header {
+    padding: 2vh 10vw 2vh 10vw;
+
+    &-span {
+      color: $white;
+      letter-spacing: 0.5px;
+
+      &-nome {
+        font-weight: $font-weight-bold;
+        font-size: 28px;
+        width: 60%;
+      }
+
+      &-experimente {
+        font-size: $font-size-14;
+        background-color: #424cd6;
+        border-radius: 5px;
+        text-align: center;
+        width: 15%;
+        padding: 10px;
+      }
+
+      &-login {
+        font-size: $font-size-14;
+        border: 1px solid $white;
+        width: 10%;
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px;
+      }
+    }
+  }
+
+  .content {
+    padding: 5vh 5vw 5vh 5vw;
+
+    &-container {
+      align-self: center;
+
+      > span:first-child {
+        font-size: 22px;
+      }
+
+      > span:nth-child(2) {
+        font-size: 48px;
+      }
+
+      &-button {
+        > button {
+          width: 15vw;
+        }
+      }
+    }
+
+    .img-bg {
+      > img {
+        width: 30vw;
+      }
+    }
+  }
+
+  .screen {
+    display: flex;
+    align-items: center;
+
+    &-img {
+      width: 60vw;
+    }
+
+    &-descriptions {
+      > span:first-child {
+        font-size: 25px;
+      }
+
+      > p {
+        font-size: $font-size-18;
+      }
+    }
+  }
+
+  .icon {
+    display: none;
+  }
+
+  .logo {
+    padding-right: 35vw;
+  }
+}
