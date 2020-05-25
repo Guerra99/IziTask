@@ -4,14 +4,25 @@
             <div class="logo">
                 <img src="./../../../assets/logo-izi.png">
             </div>
-            <span class="material-icons icon">
-                dehaze
-            </span>
-            <span class="header-span header-span-experimente">EXPERIMENTE!</span>
-            <span class="header-span header-span-login">LOGIN</span>
+
+            <mat-menu #appMenu="matMenu">
+                <button mat-menu-item (click)="redirectLogin()">Login</button>
+                <button mat-menu-item>Experimente</button>
+            </mat-menu>
+
+            <button mat-icon-button [matMenuTriggerFor]="appMenu" class="button-icon">
+                <mat-icon class="icon">dehaze</mat-icon>
+            </button>
+
+            <div class="header-span header-span-experimente" (click)="redirectCadastroUsuario()">
+                <span>EXPERIMENTE</span>
+            </div>
+            <div class="header-span header-span-login" (click)="redirectLogin()">
+                <span>LOGIN</span>
+            </div>
         </div>
-    </div>
-    <div class="header-shadow">
+        <div class="header-shadow">
+        </div>
     </div>
     <div class="content">
         <div class="content-flex">
@@ -19,7 +30,7 @@
                 <span>Se organizar nunca foi tão fácil</span>
                 <span>Seus projetos de um jeito divertido, flexível e gratificante.</span>
                 <div class="content-container-button">
-                    <button>Experimente já!</button>
+                    <button (click)="redirectCadastroUsuario()">EXPERIMENTE</button>
                 </div>
             </div>
             <div class="img-bg">
@@ -39,6 +50,32 @@
                     nisl
                     tincidunt eget nullam.
                 </p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="../../../assets/logo_footer.png">
+                <span>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore
+                    et
+                    dolore magna aliqua. Morbi tincidunt ornare massa eget egestas purus viverra accumsan. Id faucibus
+                    nisl
+                    tincidunt eget nullam.
+                </span>
+            </div>
+            <div class="footer-links">
+                <span>LINKS</span>
+                <a (click)="redirectLogin()">Entre com a sua conta</a>
+                <a (click)="redirectCadastroUsuario()">Experimente o IziTask</a>
+            </div>
+            <div class="footer-contatos">
+                <span>CONTATOS</span>
+                <a><i class="material-icons">email</i>Dhiego - dhiegorodrigues@hotmail.com</a>
+                <a><i class="material-icons">email</i>Guilherme - guilherme.guerra9@hotmail.com</a>
+                <a><i class="material-icons">email</i>Yuri - yuribarsotti@gmail.com</a>
             </div>
         </div>
     </div>

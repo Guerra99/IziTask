@@ -6,7 +6,8 @@
 
 .header {
   background-color: $primary;
-  padding: 2vh 5vw 2vh 5vw;
+  position: sticky;
+  top: 0;
 }
 
 .header-shadow {
@@ -15,8 +16,9 @@
 
 .header-flex {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  padding: 2vh 5vw 2vh 5vw;
 }
 
 .content {
@@ -51,6 +53,8 @@
         background: #424cd6;
         color: $white;
         height: 35px;
+        cursor: pointer;
+        outline: none;
       }
     }
   }
@@ -91,11 +95,91 @@
 
 .icon {
   color: $white;
-  border: 1px solid $white;
   border-radius: 5px;
   padding: 5px;
   cursor: pointer;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-icon {
+  background: transparent;
+  border: 1.5px solid $white;
+  border-radius: 6px;
+  outline: none;
+}
+
+.footer {
+  background-color: $black;
+  display: flex;
+  padding: 20px;
+
+  &-content {
+    display: flex;
+  }
+
+  &-logo {
+    display: flex;
+    flex-direction: column;
+    padding-right: 5vw;
+    color: $white;
+    width: 45vw;
+
+    > img {
+      width: 15vw;
+    }
+
+    > span {
+      padding-top: 20px;
+      text-align: justify;
+      font-size: 14px;
+    }
+  }
+
+  &-links {
+    display: flex;
+    flex-direction: column;
+    color: $white;
+    padding-right: 5vw;
+
+    > span {
+      color: #35d8b9;
+      border-bottom: 1px solid;
+    }
+
+    > a {
+      cursor: pointer;
+      font-size: 14px;
+      padding-top: 10px;
+    }
+
+    > a:hover {
+      color: #a3ffe5;
+    }
+  }
+
+  &-contatos {
+    display: flex;
+    flex-direction: column;
+    color: $white;
+
+    > span {
+      color: #35d8b9;
+      border-bottom: 1px solid;
+    }
+
+    > a {
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      padding-top: 10px;
+
+      > i {
+        padding-right: 5px;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -113,6 +197,7 @@
 
   .content {
     &-container {
+      line-height: 4vh;
       > span:first-child {
         font-size: $font-size-16;
       }
@@ -154,6 +239,27 @@
   .icon {
     font-size: 28px;
   }
+
+  .footer {
+    &-logo {
+      width: auto;
+      > span {
+        font-size: 12px;
+      }
+    }
+
+    &-links {
+      > a {
+        font-size: 12px;
+      }
+    }
+
+    &-contatos {
+      > a {
+        font-size: 12px;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
@@ -171,6 +277,7 @@
 
   .content {
     &-container {
+      line-height: 5vh;
       > span:first-child {
         font-size: $font-size-18;
       }
@@ -214,19 +321,16 @@
   }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 993px) {
   .header {
-    padding: 2vh 10vw 2vh 10vw;
+    &-flex {
+      padding: 2vh 10vw 2vh 10vw;
+    }
 
     &-span {
       color: $white;
       letter-spacing: 0.5px;
-
-      &-nome {
-        font-weight: $font-weight-bold;
-        font-size: 28px;
-        width: 60%;
-      }
+      cursor: pointer;
 
       &-experimente {
         font-size: $font-size-14;
@@ -234,7 +338,7 @@
         border-radius: 5px;
         text-align: center;
         width: 15%;
-        padding: 10px;
+        padding: 5px;
       }
 
       &-login {
@@ -253,6 +357,7 @@
 
     &-container {
       align-self: center;
+      line-height: 6vh;
 
       > span:first-child {
         font-size: 22px;
@@ -299,7 +404,11 @@
     display: none;
   }
 
+  .button-icon {
+    display: none;
+  }
+
   .logo {
-    padding-right: 35vw;
+    padding-right: 30vw;
   }
 }

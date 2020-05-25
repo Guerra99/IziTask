@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroUsuarioComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  redirectLanding() {
+    this.router.navigate(['']);
+  }
+
+  redirectLogin() {
+    this.router.navigate(['/login']);
+  }
 }

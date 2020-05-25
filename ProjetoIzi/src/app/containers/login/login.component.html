@@ -1,1 +1,48 @@
-<p>login works!</p>
+<div class="container" style="background-color: white;">
+    <div class="header">
+        <div class="header-flex">
+            <div class="logo" (click)="redirectLanding()">
+                <img src="./../../../assets/logo-izi.png">
+            </div>
+        </div>
+    </div>
+    <div class="header-shadow">
+    </div>
+    <div class="login-container">
+        <div class="login-content">
+            <div class="login-content-header">
+                <span>Faça login em sua conta</span>
+            </div>
+            <div class="login-content-input">
+                <div class="drop-login">
+                    <div class="drop-login-input">
+                        <i class="material-icons">
+                            person
+                        </i>
+                        <input placeholder="Email" type="text">
+                    </div>
+                    <div class="drop-login-input">
+                        <i class="material-icons">
+                            lock
+                        </i>
+                        <input placeholder="Senha" type="password">
+                    </div>
+                    <button>Entrar
+                        <span class="material-icons">
+                            arrow_forward
+                        </span>
+                    </button>
+                    <span>Esqueci minha senha</span>
+                </div>
+            </div>
+            <div class="content-cadastro">
+                <div class="content-cadastro-span">
+                    <span>Não possui cadastro?</span>
+                </div>
+                <div>
+                    <button class="btn-cadastrar" (click)="redirectCadastroUsuario()">Cadastre-se</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

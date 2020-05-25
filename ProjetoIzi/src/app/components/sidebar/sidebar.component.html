@@ -1,0 +1,9 @@
+<div class="sidebar">
+    <div class="sidebar-container">
+        <div *ngFor="let item of listItemsSidebar" class="sidebar-container-items" (click)="onClickSidebar(item.value)"
+            [ngClass]="{'sidebar-container-items-activated': item.activated}">
+            <span class="material-icons" [ngClass]="{'border-icon': item.icon === 'list'}">{{ item.icon }}</span>
+            <span>{{ item.nome }}</span>
+        </div>
+    </div>
+</div>

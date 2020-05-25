@@ -1,0 +1,42 @@
+@import "../../styles/variaveis.scss";
+
+.sidebar {
+    height: 92vh;
+    width: 25vw;
+    display: flex;
+    justify-content: flex-end;
+
+    &-container {
+        height: 20vw;
+        width: 16vw;
+        padding-top: 5vh;
+
+        &-items {
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 1px;
+            padding: 5px 10px;
+            background-color: transparent;
+            cursor: pointer;
+
+            > span:last-child {
+                padding-left: 15px;
+            }
+
+            > .border-icon {
+                border: 1.2px solid #0a5c4f;
+                border-radius: 5px;
+            }
+
+            &-activated {
+                background-color: rgba(53, 216, 185, 0.15);
+
+                > span {
+                    color: #0a5c4f;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

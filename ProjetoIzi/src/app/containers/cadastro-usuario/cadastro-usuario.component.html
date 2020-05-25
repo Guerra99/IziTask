@@ -1,1 +1,54 @@
-<p>cadastro-usuario works!</p>
+<div class="container" style="background-color: white;">
+    <div class="header">
+        <div class="header-flex">
+            <div class="logo" (click)="redirectLanding()">
+                <img src="./../../../assets/logo-izi.png">
+            </div>
+        </div>
+    </div>
+    <div class="header-shadow">
+    </div>
+    <div class="login-container">
+        <div class="login-content">
+            <div class="login-content-header">
+                <span>Facilite sua vida e aumente sua produtividade</span>
+                <span>Crie a sua conta</span>
+            </div>
+            <div class="login-content-input">
+                <div class="drop-login">
+                    <div class="drop-login-input">
+                        <i class="material-icons">
+                            person
+                        </i>
+                        <input placeholder="Nome" type="text">
+                    </div>
+                    <div class="drop-login-input">
+                        <i class="material-icons">
+                            email
+                        </i>
+                        <input placeholder="Email" type="text">
+                    </div>
+                    <div class="drop-login-input">
+                        <i class="material-icons">
+                            lock
+                        </i>
+                        <input placeholder="Senha" type="password">
+                    </div>
+                    <button>Cadastre-se
+                        <span class="material-icons">
+                            person_add
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="content-cadastro">
+                <div class="content-cadastro-span">
+                    <span>Já possui cadastro? Entre com a sua conta</span>
+                </div>
+                <div>
+                    <button class="btn-cadastrar" (click)="redirectLogin()">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div style="padding: 5vh 0vh 0vh 0vh;">
+    <div style="padding: 0px 0px 10px 0px;">
+        <span>{{ nomeSecaoQuadro }}</span>
+    </div>
+    <div style="display: grid;
+grid-template-columns: 27% 27% 27%;
+width: 60vw;
+height: 35vh;">
+    <div *ngFor="let quadro of quadros" style="width: 200px;
+    background-color: aqua;
+    background: url('../../../assets/card-fundo.jpg');
+    background-size: cover;
+    border-radius: 10px;
+    padding: 10px;
+    height: 85px;">
+        <div>
+            <span style="color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-family: Roboto;
+            font-size: 16px;">{{ quadro }}</span>
+        </div>
+        <div style="display: flex;
+        justify-content: flex-end;
+        /* height: 75%; */
+        padding-top: 45px;
+        align-items: flex-end;">
+            <span class="material-icons" style="color: gold;">star</span>
+        </div>
+    </div>
+</div>
+</div>
