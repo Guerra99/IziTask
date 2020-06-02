@@ -5,6 +5,7 @@ import { HeaderIziModule } from '../../components/header-izi/header-izi.module';
 import { SidebarModule } from '../../components/sidebar/sidebar.module';
 import { QuadrosModule } from '../../components/quadros/quadros.module';
 import { CardTimeModule } from 'src/app/components/card-time/card-time.module';
+import { ModalModule } from 'src/app/components/modal-invite/modal-invite.module';
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import { CardTimeModule } from 'src/app/components/card-time/card-time.module';
         HeaderIziModule,
         SidebarModule,
         QuadrosModule,
-        CardTimeModule
+        CardTimeModule,
+        ModalModule
     ],
     exports: [
         NovoTimeComponent

@@ -29,7 +29,7 @@ $dark-gray: #707070;
             > .modal-header {
                 display: flex;
                 flex-direction: column;
-                padding: 16px;
+                padding: 0px 16px 16px 16px;
 
                 > h1 {
                     color: #47bfbe;
@@ -50,6 +50,7 @@ $dark-gray: #707070;
                 color: white;
                 width: 20vw;
                 border: none;
+                cursor: pointer;
             }
         }
     }

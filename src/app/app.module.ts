@@ -12,12 +12,11 @@ import { MeuIziModule } from './containers/meu-izi/meu-izi.module';
 import { NovoTimeModule } from './containers/novo-time/novo-time.module';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthGuard } from './guard/auth-guard';
-import { ModalInviteComponent } from './components/modal-invite/modal-invite.component';
+import { ModalModule } from './components/modal-invite/modal-invite.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ModalInviteComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +27,7 @@ import { ModalInviteComponent } from './components/modal-invite/modal-invite.com
     MeuIziModule,
     MenuQuadrosModule,
     NovoTimeModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [AuthGuardService, AuthGuard],
   bootstrap: [AppComponent]
