@@ -1,29 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { QuadrosComponent } from './components/quadros/quadros.component';
 import { LandingPageModule } from './containers/landing-page/landing-page.module';
-import { CadastroUsuarioComponent } from './containers/cadastro-usuario/cadastro-usuario.component';
+import { CadastroUsuarioModule } from './containers/cadastro-usuario/cadastro-usuario.module';
 import { LoginModule } from './containers/login/login.module';
-
+import { MenuQuadrosModule } from './containers/menu-quadros/menu-quadros.module';
+import { MeuIziModule } from './containers/meu-izi/meu-izi.module';
+import { NovoTimeModule } from './containers/novo-time/novo-time.module';
+import { AuthGuardService } from './services/auth-guard.service';
+import { AuthGuard } from './guard/auth-guard';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent,
-    QuadrosComponent,
-    CadastroUsuarioComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    BrowserAnimationsModule,
     LandingPageModule,
-    LoginModule
+    LoginModule,
+    CadastroUsuarioModule,
+    MeuIziModule,
+    MenuQuadrosModule,
+    NovoTimeModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthGuardService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

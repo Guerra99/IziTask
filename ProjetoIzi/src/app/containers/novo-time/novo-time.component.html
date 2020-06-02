@@ -1,0 +1,51 @@
+<app-header-izi></app-header-izi>
+<div style="display: flex; background-color: #e5e5e5;">
+    <app-sidebar [item]="3">
+    </app-sidebar>
+    <div style="display: flex;">
+        <form style="width: 30vw; padding-top: 5vh;">
+            <div style="display: flex; flex-direction: column;">
+                <div style="font-size: 20px;">
+                    <span>Criar Time</span>
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <div style="display: flex; flex-direction: column; margin-top: 15px;">
+                        <label style="padding-bottom: 5px; color: #7e7e7e;">Nome</label>
+                        <input type="text" style="border: none;
+                    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
+                    height: 30px; padding: 5px;">
+                    </div>
+                    <div style="display: flex; flex-direction: column; margin-top: 15px;">
+                        <label style="padding-bottom: 5px; color: #7e7e7e;">Categoria</label>
+                        <input type="text" style="border: none;
+                    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
+                    height: 30px; padding: 5px;"> </div>
+                    <div style="display: flex; flex-direction: column; margin-top: 15px;">
+                        <label style="padding-bottom: 5px; color: #7e7e7e;">Descrição</label>
+                        <textarea type="text" style="border: none;
+                    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
+                    height: 10vh; padding: 5px;"></textarea>
+                    </div>
+                    <div style="display: flex; flex-direction: column; margin-top: 15px;">
+                        <label style="padding-bottom: 5px; color: #7e7e7e;">Membros</label>
+                        <input type="text" style="border: none;
+                    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
+                    height: 30px; padding: 5px;"> </div>
+                </div>
+                <div style="padding-top: 20px; display: flex; justify-content: flex-end;">
+                    <button style="border: none;
+                background-color: #424cd6;
+                border-radius: 6px;
+                color: white;
+                padding: 10px; cursor: pointer;">Criar time</button>
+                </div>
+            </div>
+        </form>
+        <div style="padding: 5vw;">
+            <img src="../../../assets/img_form_time.png">
+        </div>
+    </div>
+</div>
+<div style="background-color: #e5e5e5; display: flex; justify-content: center; height: 20vh;">
+    <app-card-time></app-card-time>
+</div>

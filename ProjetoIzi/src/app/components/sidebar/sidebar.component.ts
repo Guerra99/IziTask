@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -17,9 +18,12 @@ export class SidebarComponent implements OnInit {
       { nome: 'Convidar amigo', icon: 'mail', value: 4, activated: false }
     ];
 
-  constructor() { }
+  @Input() item: number;
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.listItemsSidebar.find(x => x.value === this.item).activated = true;
   }
 
   onClickSidebar(value: number) {
@@ -28,6 +32,20 @@ export class SidebarComponent implements OnInit {
     });
 
     this.listItemsSidebar.find(x => x.value === value).activated = true;
-  }
 
+    switch (value) {
+      case 1:
+        this.router.navigate(['/menu-quadros']);
+        break;
+      case 2:
+        this.router.navigate(['/meu-izi']);
+        break;
+      case 3:
+        this.router.navigate(['/novo-time']);
+        break;
+      // case 4:
+      //   this.router.navigate(['/menu-quadros']);
+      //   break;
+    }
+  }
 }

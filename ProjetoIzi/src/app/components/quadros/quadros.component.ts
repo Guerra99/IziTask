@@ -13,10 +13,20 @@ export class QuadrosComponent implements OnInit {
   @Input() nomeSecaoQuadro: string;
 
   quadros = ['Mobile', 'Banco de Dados', 'Front', 'Back', 'Documentações', 'Bugs'];
+  quadrosFavoritos = [];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addFavorito(quadro) {
+    if (this.quadrosFavoritos.find(x => x === quadro)) {
+      const index = this.quadrosFavoritos.indexOf(quadro);
+      this.quadrosFavoritos.splice(index, 1);
+    } else {
+      this.quadrosFavoritos.unshift(quadro);
+    }
   }
 
 }

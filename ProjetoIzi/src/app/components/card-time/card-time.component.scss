@@ -1,0 +1,39 @@
+.card {
+    width: 50vw;
+    height: 50px;
+    background: white;
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.25);
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 3fr;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.border-card {
+    height: 50px;
+    background-color: #35d8b9;
+    border-radius: 10px;
+    width: 5px;
+}
+
+.team-name {
+    display: flex;
+    align-items: center;
+
+    > span {
+        font-weight: bold;
+    }
+}
+
+.boards {
+    display: flex;
+    align-items: center;
+}
+
+.users {
+    display: flex;
+    align-items: center;
+}

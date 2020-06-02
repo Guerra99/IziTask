@@ -8,6 +8,7 @@
     </div>
     <div class="header-shadow">
     </div>
+
     <div class="login-container">
         <div class="login-content">
             <div class="login-content-header">
@@ -15,23 +16,27 @@
             </div>
             <div class="login-content-input">
                 <div class="drop-login">
-                    <div class="drop-login-input">
-                        <i class="material-icons">
-                            person
-                        </i>
-                        <input placeholder="Email" type="text">
-                    </div>
-                    <div class="drop-login-input">
-                        <i class="material-icons">
-                            lock
-                        </i>
-                        <input placeholder="Senha" type="password">
-                    </div>
-                    <button>Entrar
-                        <span class="material-icons">
-                            arrow_forward
-                        </span>
-                    </button>
+                    <form [formGroup]="contaForm" (ngSubmit)="logar(contaForm.value)">
+                        <div class="drop-login-input">
+                            <i class="material-icons">
+                                person
+                            </i>
+                            <input placeholder="Email" type="text" [formControl]="contaForm.get('email')">
+                        </div>
+                        <div class="drop-login-input">
+                            <i class="material-icons">
+                                lock
+                            </i>
+                            <input placeholder="Senha" type="password" [formControl]="contaForm.get('senha')">
+                        </div>
+                        <div class="btn-entrar">
+                            <button type="submit">Entrar
+                                <span class="material-icons">
+                                    arrow_forward
+                                </span>
+                            </button>
+                        </div>
+                    </form>
                     <span>Esqueci minha senha</span>
                 </div>
             </div>

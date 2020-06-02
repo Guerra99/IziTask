@@ -1,0 +1,13 @@
+<div class="card" *ngFor="let time of teams; index as i">
+    <div class="border-card">
+    </div>
+    <div class="team-name">
+        <span>{{ time.nome }}</span>
+    </div>
+    <div class="boards">
+        <span>Quadros: 5</span>
+    </div>
+    <div class="users">
+        <span>Usuários: {{ time.membros[i].nome }}</span>
+    </div>
+</div>

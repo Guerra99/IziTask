@@ -11,10 +11,10 @@
                 <span class="material-icons">account_circle</span>
             </div>
             <div class="header-account">
-                <span class="user-name">Olá, Guilherme</span>
+                <span class="user-name">Olá, {{ usuarioLogado() }}</span>
                 <span></span>
-                <span class="header-account-link">Configurações</span>
-                <span class="header-account-link">Sair</span>
+                <!-- <span class="header-account-link">Configurações</span> -->
+                <span class="header-account-link" (click)="deslogar()">Sair</span>
             </div>
         </div>
     </div>

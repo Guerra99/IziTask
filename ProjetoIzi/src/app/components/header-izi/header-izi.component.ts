@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, EventEmitter } from '@angular/core';
+import { AuthGuardService } from 'src/app/services/auth-guard.service';
+import { Conta } from 'src/app/models/conta.model';
 
 @Component({
   selector: 'app-header-izi',
@@ -7,11 +9,19 @@ import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 })
 export class HeaderIziComponent implements OnInit {
 
-  @Input() userName: EventEmitter<string> = new EventEmitter<string>();
+  usuario: Conta;
 
-  constructor() { }
+  constructor(private authService: AuthGuardService) { }
 
   ngOnInit(): void {
+    // this.usuario = this.authService.buscarUsuarioLogado();
   }
 
+  usuarioLogado() {
+    // return this.usuario.nome;
+  }
+
+  deslogar() {
+    // this.authService.deslogar(this.usuario);
+  }
 }
