@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
+
 import { SidebarComponent } from './sidebar.component';
 
 
@@ -9,10 +10,10 @@ import { SidebarComponent } from './sidebar.component';
         SidebarComponent
     ],
     imports: [
-        CommonModule
+        CommonModule,
     ],
     exports: [
-        SidebarComponent
+        SidebarComponent,
     ],
     providers: [],
 })

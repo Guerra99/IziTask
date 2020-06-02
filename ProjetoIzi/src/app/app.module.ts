@@ -12,10 +12,12 @@ import { MeuIziModule } from './containers/meu-izi/meu-izi.module';
 import { NovoTimeModule } from './containers/novo-time/novo-time.module';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthGuard } from './guard/auth-guard';
+import { ModalInviteComponent } from './components/modal-invite/modal-invite.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ModalInviteComponent,
   ],
   imports: [
     BrowserModule,

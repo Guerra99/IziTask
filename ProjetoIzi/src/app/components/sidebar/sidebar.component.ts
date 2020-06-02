@@ -43,9 +43,8 @@ export class SidebarComponent implements OnInit {
       case 3:
         this.router.navigate(['/novo-time']);
         break;
-      // case 4:
-      //   this.router.navigate(['/menu-quadros']);
-      //   break;
+      case 4:
+        break;
     }
   }
 }

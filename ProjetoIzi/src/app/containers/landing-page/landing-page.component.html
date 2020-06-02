@@ -7,7 +7,7 @@
 
             <mat-menu #appMenu="matMenu">
                 <button mat-menu-item (click)="redirectLogin()">Login</button>
-                <button mat-menu-item>Experimente</button>
+                <button mat-menu-item (click)="redirectCadastroUsuario()">Experimente</button>
             </mat-menu>
 
             <button mat-icon-button [matMenuTriggerFor]="appMenu" class="button-icon">
