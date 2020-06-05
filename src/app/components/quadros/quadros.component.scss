@@ -1,0 +1,59 @@
+.container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    width: 50vw;
+    height: 50vh;
+    background-color: white;
+    padding: 16px;
+    border-radius: 25px;
+}
+
+.quadro-container {
+    width: 200px;
+    background: url("../../../assets/card-fundo.jpg");
+    background-size: cover;
+    border-radius: 10px;
+    padding: 10px;
+    height: 85px;
+}
+
+.quadro-fav {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 45px;
+    align-items: center;
+
+    > span {
+        color: gold;
+        cursor: pointer;
+    }
+}
+
+.nome-quadro {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.quadro-add {
+    width: 200px;
+    background-size: cover;
+    border-radius: 10px;
+    padding: 10px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ebebeb;
+}
+
+.card-quadro {
+    width: 200px;
+    background-size: cover;
+    border-radius: 10px;
+    padding: 10px;
+    height: 85px;
+    background-color: #e9e9e9;
+    margin-top: 5px;
+}

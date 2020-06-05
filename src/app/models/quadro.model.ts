@@ -1,4 +1,7 @@
 export class Quadro {
-    nome: string;
+    nomeQuadro: string;
+    status: string;
+    descricao: string;
+    tipo: string;
     favorito: boolean;
 }
