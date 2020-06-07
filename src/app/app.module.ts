@@ -14,6 +14,12 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { AuthGuard } from './guard/auth-guard';
 import { ModalModule } from './components/modal-invite/modal-invite.module';
 
+import { ApolloModule, APOLLO_OPTIONS } from "apollo-angular";
+import { HttpLinkModule, HttpLink } from "apollo-angular-link-http";
+import { InMemoryCache } from "apollo-cache-inmemory";
+import { HttpClientModule } from "@angular/common/http";
+import uri from "./graphql.module";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,8 +34,23 @@ import { ModalModule } from './components/modal-invite/modal-invite.module';
     MenuQuadrosModule,
     NovoTimeModule,
     AppRoutingModule,
+    HttpClientModule,
+    ApolloModule,
+    HttpLinkModule
   ],
-  providers: [AuthGuardService, AuthGuard],
+  // providers: [AuthGuardService, AuthGuard, ],
+  providers: [{
+    provide: APOLLO_OPTIONS,
+    useFactory: (httpLink: HttpLink) => {
+      return {
+        cache: new InMemoryCache(),
+        link: httpLink.create({
+          uri: uri
+        })
+      }
+    },
+    deps: [HttpLink]
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
