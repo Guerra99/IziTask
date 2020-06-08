@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Apollo } from 'apollo-angular';
-import {CREATE_ACCOUNT_MUTATION} from "./graphql";
+import { CREATE_ACCOUNT_MUTATION } from "./graphql";
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -14,7 +15,16 @@ export class CadastroUsuarioComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(private router: Router, private apollo: Apollo) {}
+  usuarioForm: FormGroup;
+
+  constructor(private router: Router, private apollo: Apollo, private fb: FormBuilder) {
+    this.usuarioForm = this.fb.group({
+      nome: [],
+      sobrenome: [],
+      email: [],
+      senha: []
+    });
+  }
 
   ngOnInit(): void {
   }
@@ -27,13 +37,13 @@ export class CadastroUsuarioComponent implements OnInit {
     this.apollo.mutate({
       mutation: CREATE_ACCOUNT_MUTATION,
       variables: {
-        email: this.email,
-        password: this.password,
-        firstName: this.firstName,
-        lastName: this.lastName,
+        email: this.usuarioForm.get('email').value,
+        password: this.usuarioForm.get('senha').value,
+        firstName: this.usuarioForm.get('nome').value,
+        lastName: this.usuarioForm.get('sobrenome').value,
       }
-    }).subscribe(({data}) => {
-      console.log(data)
+    }).subscribe(({ data }) => {
+      console.log(data);
     }, (error) => {
       console.error('Houve algum erro ao enviar mutation: ', error)
     });

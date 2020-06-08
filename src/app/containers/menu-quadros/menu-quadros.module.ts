@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderIziModule } from '../../components/header-izi/header-izi.module';
 import { SidebarModule } from '../../components/sidebar/sidebar.module';
 import { QuadrosModule } from '../../components/quadros/quadros.module';
+import { CardTimeModule } from '../../components/card-time/card-time.module';
 
 @NgModule({
     declarations: [
@@ -13,7 +14,8 @@ import { QuadrosModule } from '../../components/quadros/quadros.module';
         CommonModule,
         HeaderIziModule,
         SidebarModule,
-        QuadrosModule
+        QuadrosModule,
+        CardTimeModule
     ],
     exports: [
         MenuQuadrosComponent

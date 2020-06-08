@@ -1,7 +1,7 @@
 @import "../../styles/variaveis.scss";
 
 .login-container {
-  height: 90vh;
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -136,7 +136,8 @@
 }
 
 .header {
-  background-color: $primary;
+  background-color: $white;
+  border-bottom: 1px solid #CCCCCC;
   padding: 2vh 5vw 2vh 5vw;
 }
 

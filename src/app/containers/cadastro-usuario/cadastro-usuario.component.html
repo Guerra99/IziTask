@@ -6,47 +6,48 @@
       </div>
     </div>
   </div>
-  <div class="header-shadow">
-  </div>
   <div class="login-container">
     <div class="login-content">
       <div class="login-content-header">
         <span>Facilite sua vida e aumente sua produtividade</span>
         <span>Crie a sua conta</span>
       </div>
-      <div class="login-content-input">
+      <form [formGroup]="usuarioForm" (ngSubmit)="createAccount()">
+        <div class="login-content-input">
           <div class="drop-login">
             <div class="drop-login-input">
               <i class="material-icons">
                 person
               </i>
-              <input placeholder="Nome" type="text" [(ngModel)]="firstName">
+              <input placeholder="Nome" type="text" [formControl]="usuarioForm.get('nome')">
             </div>
             <div class="drop-login-input">
               <i class="material-icons">
                 person
               </i>
-              <input placeholder="Sobrenome" type="text" [(ngModel)]="lastName">
+              <input placeholder="Sobrenome" type="text" [formControl]="usuarioForm.get('sobrenome')">
             </div>
             <div class="drop-login-input">
               <i class="material-icons">
                 email
               </i>
-              <input placeholder="Email" type="text" [(ngModel)]="email">
+              <input placeholder="Email" type="email" [formControl]="usuarioForm.get('email')">
             </div>
             <div class="drop-login-input">
               <i class="material-icons">
                 lock
               </i>
-              <input placeholder="Senha" type="password" [(ngModel)]="password">
+              <input placeholder="Senha" type="password" [formControl]="usuarioForm.get('senha')">
             </div>
-            <button (click)="createAccount()">Cadastre-se
+            <button type="submit">Cadastre-se
               <span class="material-icons">
-                            person_add
-                        </span>
+                person_add
+              </span>
             </button>
           </div>
-      </div>
+        </div>
+      </form>
+
       <div class="content-cadastro">
         <div class="content-cadastro-span">
           <span>Já possui cadastro? Entre com a sua conta</span>
