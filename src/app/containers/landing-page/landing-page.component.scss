@@ -5,14 +5,14 @@
 }
 
 .header {
-  background-color: $primary;
+  background-color: $white;
   position: sticky;
   top: 0;
 }
 
-.header-shadow {
-  box-shadow: 0px 15px 20px 20px rgba(0, 0, 0, 0.17);
-}
+// .header-shadow {
+//   box-shadow: 0px 15px 20px 20px rgba(0, 0, 0, 0.17);
+// }
 
 .header-flex {
   display: flex;
@@ -22,8 +22,11 @@
 }
 
 .content {
-  background-color: $gray-light;
   padding: 2vh 2vw 2vh 2vw;
+  background-image: url(./../../../assets/bg_landing.png);
+  background-size: cover;
+  height: 70vh;
+  display: flex;
 
   &-flex {
     display: flex;
@@ -33,14 +36,15 @@
   &-container {
     display: flex;
     flex-direction: column;
-    width: 55vw;
+    width: 45vw;
 
     > span:first-child {
-      color: #858bff;
+      color: $white;
       padding: 5px 0px 0px 5px;
     }
 
     > span:nth-child(2) {
+      color: $white;
       padding: 5px 5px 25px 5px;
     }
 
@@ -50,7 +54,7 @@
       > button {
         border: none;
         border-radius: 6px;
-        background: #424cd6;
+        background: #00aca1;
         color: $white;
         height: 35px;
         cursor: pointer;
@@ -334,7 +338,7 @@
 
       &-experimente {
         font-size: $font-size-14;
-        background-color: #424cd6;
+        background-color: #00aca1;
         border-radius: 5px;
         text-align: center;
         width: 15%;
@@ -343,13 +347,53 @@
 
       &-login {
         font-size: $font-size-14;
-        border: 1px solid $white;
+        border: 1px solid #00aca1;
         width: 10%;
         text-align: center;
         border-radius: 5px;
         padding: 5px;
+        color: #00aca1;
       }
     }
+  }
+
+  .content-prototype-quadros {
+    background-color: #0b4d89;
+    height: 70vh;
+    display: flex;
+
+    .screen-quadros {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: center;
+
+      &-descricao {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        width: 25vw;
+        padding: 5vw;
+
+        > span:first-child {
+          font-size: 30px;
+          padding-bottom: 5vh;
+          line-height: 5vh;
+        }
+
+        > span:last-child {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .content-descricao {
+    background-image: url("../../../assets/bg_landing2.png");
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .content {
