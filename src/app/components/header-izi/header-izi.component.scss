@@ -1,11 +1,12 @@
 @import "../../styles/variaveis.scss";
 
 .container {
-    background-color: $primary;
+    background-color: $white;
     height: 40px;
     padding: 10px;
     position: sticky;
     top: 0;
+    border-bottom: 1px solid #cccccc;
 }
 
 .header {
@@ -15,7 +16,7 @@
     align-items: center;
 
     &-descricao {
-        color: $white;
+        color: $black;
     }
 
     &-account {
@@ -27,20 +28,16 @@
             padding: 0px 10px;
         }
 
-        > span:last-child{
+        > span:last-child {
             border-left: 1px solid white;
         }
 
-        &-link{
-            color: #424CD6;
+        &-link {
+            color: #00ACA1;
             text-decoration: underline;
             font-size: 14px;
         }
     }
-
-    // &-shadow {
-    //     box-shadow: 0px 5px 20px 10px rgba(0, 0, 0, 0.17);
-    // }
 }
 
 .logo {
@@ -51,12 +48,12 @@
     align-items: center;
 
     &-foto {
-        > span{
+        > span {
             font-size: 40px;
         }
     }
 
     &-name {
-        color: $white;
+        color: $black;
     }
 }

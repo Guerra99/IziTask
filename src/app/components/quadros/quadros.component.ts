@@ -18,20 +18,15 @@ export class QuadrosComponent implements OnInit {
       { nomeQuadro: 'Componentizar a web', descricao: 'Tarefa de Front-end', status: 'PROGRESS', tipo: 'Front-end', favorito: false },
       { nomeQuadro: 'Fazer conexão com os endpoints', descricao: 'Tarefa de Front-end', status: 'PROGRESS', tipo: 'Front-end', favorito: false },
       { nomeQuadro: 'Preparar querys', descricao: 'Tarefa de Banco de dados', status: 'DONE', tipo: 'Banco de dados', favorito: false },
-      { nomeQuadro: 'Dasahboard', descricao: 'Tarefa de BI', status: 'DONE', tipo: 'BI', favorito: false },
+      { nomeQuadro: 'Dashboard', descricao: 'Tarefa de BI', status: 'DONE', tipo: 'BI', favorito: false },
       { nomeQuadro: 'Bugs do app', descricao: 'Tarefa de Suporte', status: 'DONE', tipo: 'Suporte', favorito: false },
     ];
-
-  listaToDo: Quadro[] = [];
-  listaProgress: Quadro[] = [];
-  listaDone: Quadro[] = [];
 
   quadrosFavoritos: Quadro[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
-    this.quadros.filter(x => this.classificarQuadros(x));
   }
 
   addFavorito(quadro: Quadro) {
@@ -46,14 +41,6 @@ export class QuadrosComponent implements OnInit {
     }
   }
 
-  classificarQuadros(quadro: Quadro) {
-    if (quadro.status === 'TODO') {
-      this.listaToDo.unshift(quadro);
-    } else if (quadro.status === 'PROGRESS') {
-      this.listaProgress.unshift(quadro);
-    } else {
-      this.listaDone.unshift(quadro);
-    }
-  }
+
 
 }

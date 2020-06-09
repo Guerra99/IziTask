@@ -13,16 +13,20 @@ import { NovoTimeModule } from './containers/novo-time/novo-time.module';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthGuard } from './guard/auth-guard';
 import { ModalModule } from './components/modal-invite/modal-invite.module';
+import { QuadroBacklogModule } from './containers/quadro-dashboard/quadro-backlog.module';
 
-import { ApolloModule, APOLLO_OPTIONS } from "apollo-angular";
-import { HttpLinkModule, HttpLink } from "apollo-angular-link-http";
-import { InMemoryCache } from "apollo-cache-inmemory";
-import { HttpClientModule } from "@angular/common/http";
-import uri from "./graphql.module";
+import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
+import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { HttpClientModule } from '@angular/common/http';
+import uri from './graphql.module';
+import { CadastroTarefaModule } from './containers/cadastro-tarefa/cadastro-tarefa.module';
+import { DetalheTarefaModule } from './containers/detalhe-tarefa/detalhe-tarefa.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -36,21 +40,25 @@ import uri from "./graphql.module";
     AppRoutingModule,
     HttpClientModule,
     ApolloModule,
-    HttpLinkModule
+    HttpLinkModule,
+    QuadroBacklogModule,
+    CadastroTarefaModule,
+    DetalheTarefaModule
   ],
   // providers: [AuthGuardService, AuthGuard, ],
-  providers: [{
-    provide: APOLLO_OPTIONS,
-    useFactory: (httpLink: HttpLink) => {
-      return {
-        cache: new InMemoryCache(),
-        link: httpLink.create({
-          uri: uri
-        })
-      }
-    },
-    deps: [HttpLink]
-  }],
+  providers: [AuthGuardService, AuthGuard,
+    {
+      provide: APOLLO_OPTIONS,
+      useFactory: (httpLink: HttpLink) => {
+        return {
+          cache: new InMemoryCache(),
+          link: httpLink.create({
+            uri: uri
+          })
+        }
+      },
+      deps: [HttpLink]
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

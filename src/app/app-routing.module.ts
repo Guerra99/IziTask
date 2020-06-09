@@ -7,6 +7,9 @@ import { MenuQuadrosComponent } from './containers/menu-quadros/menu-quadros.com
 import { MeuIziComponent } from './containers/meu-izi/meu-izi.component';
 import { NovoTimeComponent } from './containers/novo-time/novo-time.component';
 import { AuthGuard } from './guard/auth-guard';
+import { QuadroBacklogComponent } from './containers/quadro-dashboard/quadro-backlog.component';
+import { CadastroTarefaComponent } from './containers/cadastro-tarefa/cadastro-tarefa.component';
+import { DetalheTarefaComponent } from './containers/detalhe-tarefa/detalhe-tarefa.component';
 
 
 const routes: Routes = [
@@ -39,6 +42,18 @@ const routes: Routes = [
     component: NovoTimeComponent,
     // canActivate: [AuthGuard],
     // canLoad: [AuthGuard]
+  },
+  {
+    path: 'quadro-backlog',
+    component: QuadroBacklogComponent
+  },
+  {
+    path: 'cadastro-tarefa',
+    component: CadastroTarefaComponent
+  },
+  {
+    path: 'detalhe-tarefa',
+    component: DetalheTarefaComponent
   }
 ];
 

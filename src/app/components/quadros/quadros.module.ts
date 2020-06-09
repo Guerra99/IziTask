@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { QuadrosComponent } from './quadros.component';
+import { CardTimeModule } from '../../components/card-time/card-time.module';
 
 
 @NgModule({
@@ -9,7 +10,7 @@ import { QuadrosComponent } from './quadros.component';
         QuadrosComponent
     ],
     imports: [
-        CommonModule
+        CommonModule, CardTimeModule
     ],
     exports: [
         QuadrosComponent
