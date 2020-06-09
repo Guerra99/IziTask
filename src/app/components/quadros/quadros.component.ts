@@ -11,15 +11,23 @@ export class QuadrosComponent implements OnInit {
   // @Input() quadros: [] = [];
   quadros: Quadro[] =
     [
-      { nomeQuadro: 'Criar tela inicial app', descricao: 'Tarefa de Mobile', status: 'TODO', tipo: 'Mobile', favorito: false },
-      { nomeQuadro: 'Criar loading', descricao: 'Tarefa de Mobile', status: 'TODO', tipo: 'Mobile', favorito: false },
-      { nomeQuadro: 'Criar endpoints', descricao: 'Tarefa de Back-end', status: 'TODO', tipo: 'Back-end', favorito: false },
-      { nomeQuadro: 'Layout da web', descricao: 'Tarefa de Front-end', status: 'PROGRESS', tipo: 'Front-end', favorito: false },
-      { nomeQuadro: 'Componentizar a web', descricao: 'Tarefa de Front-end', status: 'PROGRESS', tipo: 'Front-end', favorito: false },
-      { nomeQuadro: 'Fazer conexão com os endpoints', descricao: 'Tarefa de Front-end', status: 'PROGRESS', tipo: 'Front-end', favorito: false },
-      { nomeQuadro: 'Preparar querys', descricao: 'Tarefa de Banco de dados', status: 'DONE', tipo: 'Banco de dados', favorito: false },
-      { nomeQuadro: 'Dashboard', descricao: 'Tarefa de BI', status: 'DONE', tipo: 'BI', favorito: false },
-      { nomeQuadro: 'Bugs do app', descricao: 'Tarefa de Suporte', status: 'DONE', tipo: 'Suporte', favorito: false },
+      {
+        idQuadro: '1', nomeQuadro: 'Projeto Izi',
+        idsTarefas: ['1', '2', '3', '4', '5'],
+        favorito: false,
+        equipe: {
+          nome: 'Dev',
+          membros: [{ id: '1', nome: 'Guilherme', sobrenome: 'Guerra', email: 'guilherme@hotmail.com', senha: '123456', logado: true }]
+        }
+      },
+      // { idQuadro: '2', nomeQuadro: 'Criar endpoints', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } },
+      // { idQuadro: '3', nomeQuadro: 'Layout da web', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } },
+      // { idQuadro: '4', nomeQuadro: 'Componentizar a web', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } },
+      // { idQuadro: '5', nomeQuadro: 'Fazer conexão com os endpoints', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } },
+      // { idQuadro: '6', nomeQuadro: 'Preparar querys', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } },
+      // { idQuadro: '7', nomeQuadro: 'Dashboard', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } },
+      // { idQuadro: '8', nomeQuadro: 'Preparar querys', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } },
+      // { idQuadro: '9', nomeQuadro: 'Bugs do app', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } }
     ];
 
   quadrosFavoritos: Quadro[] = [];
@@ -40,7 +48,4 @@ export class QuadrosComponent implements OnInit {
       this.quadrosFavoritos.unshift(quadro);
     }
   }
-
-
-
 }

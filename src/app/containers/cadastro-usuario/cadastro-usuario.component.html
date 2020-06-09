@@ -1,3 +1,4 @@
+<app-modal [show]="showModal" [modalConfiguration]="modalConfig"></app-modal>
 <div class="container" style="background-color: white;">
   <div class="header">
     <div class="header-flex">
@@ -33,13 +34,19 @@
               </i>
               <input placeholder="Email" type="email" [formControl]="usuarioForm.get('email')">
             </div>
-            <div class="drop-login-input">
+            <div class="drop-login-input" [ngClass]="{'password-invalid': usuarioForm.get('senha').invalid}">
               <i class="material-icons">
                 lock
               </i>
               <input placeholder="Senha" type="password" [formControl]="usuarioForm.get('senha')">
             </div>
-            <button type="submit">Cadastre-se
+            <div *ngIf="usuarioForm.get('senha').invalid" style="width: 100%;
+            padding: 0px 0px 20px 10px;
+            color: red;">
+              <span style="font-size: 10px;">A senha deve conter pelo menos 6 caracteres.</span>
+            </div>
+            <button class="btn-cadastrar" type="submit" [disabled]="!usuarioForm.valid"
+              [ngClass]="{'btn-invalid': !usuarioForm.valid}">Cadastre-se
               <span class="material-icons">
                 person_add
               </span>
@@ -53,7 +60,7 @@
           <span>Já possui cadastro? Entre com a sua conta</span>
         </div>
         <div>
-          <button class="btn-cadastrar" (click)="redirectLogin()">Login</button>
+          <button type="button" class="btn-logar" (click)="redirectLogin()">Login</button>
         </div>
       </div>
     </div>

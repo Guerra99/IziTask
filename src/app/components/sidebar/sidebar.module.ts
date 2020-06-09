@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
-import { ModalModule } from '../modal-invite/modal-invite.module';
+import { ModalInviteModule } from '../modal-invite/modal-invite.module';
 import { SidebarComponent } from './sidebar.component';
 
 
@@ -11,7 +11,7 @@ import { SidebarComponent } from './sidebar.component';
     ],
     imports: [
         CommonModule,
-        ModalModule
+        ModalInviteModule
     ],
     exports: [
         SidebarComponent,

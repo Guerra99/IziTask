@@ -1,0 +1,112 @@
+$white: #ffffff;
+$light-gray: #ededed;
+$dark-gray: #707070;
+$accept-green: #1ac15d;
+$denied-red: #ee1f59;
+$warning-yellow: #ffcc00;
+
+@mixin border-top-definition($color, $number) {
+  background-color: $color;
+  border-top-left-radius: $number;
+  border-top-right-radius: $number;
+  height: $number;
+  width: 100%;
+}
+
+@mixin toggleIcon($color, $rotate: false) {
+  color: $color;
+
+  @if $rotate {
+    transform: rotate(45deg);
+  }
+}
+
+.border-top-accept {
+  @include border-top-definition($accept-green, 6px);
+}
+
+.border-top-denied {
+  @include border-top-definition($denied-red, 6px);
+}
+.border-top-warning {
+  @include border-top-definition($warning-yellow, 6px);
+}
+
+.accept-icon {
+  @include toggleIcon($accept-green, $rotate: false);
+}
+
+.denied-icon {
+  @include toggleIcon($denied-red, $rotate: true);
+}
+
+.warning-icon {
+  @include toggleIcon($warning-yellow, $rotate: false);
+}
+
+.modal-background {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1003;
+
+  > .modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    border-radius: 6px;
+    background-color: $white;
+
+    > .modal-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      background-color: $light-gray;
+      padding-top: 5px;
+
+      > p {
+        margin: 0;
+        font-size: 100%;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        color: $dark-gray;
+        padding: 10px;
+        text-align: center;
+      }
+    }
+
+    > .modal-footer {
+      height: 42px;
+      width: 100%;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      background-color: $white;
+      display: flex;
+
+      > button {
+        height: 42px;
+        width: 100%;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: bold;
+        font-family: "Roboto", sans-serif;
+        border: none;
+        background-color: transparent;
+
+        &:first-child {
+          border-bottom-left-radius: 5px;
+        }
+        &:last-child {
+          border-bottom-right-radius: 5px;
+        }
+      }
+    }
+  }
+}

@@ -9,4 +9,4 @@ import { ModalInviteComponent } from './modal-invite.component';
     declarations: [ModalInviteComponent],
     providers: [],
 })
-export class ModalModule { }
+export class ModalInviteModule { }

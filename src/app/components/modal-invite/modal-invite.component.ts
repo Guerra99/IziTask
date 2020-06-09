@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ModalConfigurationInterface } from './modal.configuration.interface';
 
 @Component({
   selector: 'app-modal-invite',
@@ -11,7 +10,6 @@ export class ModalInviteComponent implements OnInit {
   constructor() { }
 
   @Input() public show = false;
-  // @Input() public modalConfiguration: ModalConfigurationInterface;
 
   ngOnInit(): void {
   }

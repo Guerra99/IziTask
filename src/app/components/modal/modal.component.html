@@ -1,0 +1,24 @@
+<div class="modal-background" [style.display]=" show ? 'block' : 'none'">
+    <div class="modal" *ngIf="modalConfiguration">
+  
+      <div *ngIf="modalConfiguration.modalType === 'accept'" class="border-top-accept"></div>
+      <div *ngIf="modalConfiguration.modalType === 'error'" class="border-top-denied"></div>
+      <div *ngIf="modalConfiguration.modalType === 'warning'" class="border-top-warning"></div>
+  
+      <div class="modal-body">
+        <i *ngIf="modalConfiguration.modalType === 'accept'" class="material-icons accept-icon">check_circle</i>
+        <i *ngIf="modalConfiguration.modalType === 'error'" class="material-icons denied-icon">add_circle</i>
+        <i *ngIf="modalConfiguration.modalType === 'warning'" class="material-icons warning-icon">warning</i>
+        <p>{{modalConfiguration.text}}</p>
+      </div>
+  
+      <div class="modal-footer">
+        <button role="button" *ngFor="let btn of modalConfiguration.buttons" (click)="btn.callback()"
+          [ngStyle]="{'background-color': btn.backgroundColor, 'color': btn.color}">
+          {{btn.text}}
+        </button>
+      </div>
+  
+    </div>
+  
+  </div>

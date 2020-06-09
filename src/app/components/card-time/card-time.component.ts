@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Conta } from 'src/app/models/conta.model';
-import { Time } from 'src/app/models/time.model';
+import { Equipe } from 'src/app/models/equipe.model';
 
 @Component({
   selector: 'app-card-time',
@@ -11,25 +11,25 @@ export class CardTimeComponent implements OnInit {
 
   constructor() { }
 
-  @Input() times: Time[];
+  @Input() times: Equipe[];
 
-  teams: Time[] = [
+  teams: Equipe[] = [
     {
-      nome: 'Back-end', quadrosTime: [],
+      nome: 'Back-end',
       membros:
         [
-          { nome: 'Guilherme', id: '1', senha: '1234', email: 'guilherme@hotmail.com', quadros: [], logado: true },
-          { nome: 'Dhiego', id: '2', senha: '1234', email: 'guilherme@hotmail.com', quadros: [], logado: true },
-          { nome: 'Yuri', id: '3', senha: '1234', email: 'guilherme@hotmail.com', quadros: [], logado: true }
+          { nome: 'Guilherme', sobrenome: 'Guerra', id: '1', senha: '1234', email: 'guilherme@hotmail.com', logado: true },
+          { nome: 'Dhiego', sobrenome: 'Rodrigues', id: '2', senha: '1234', email: 'guilherme@hotmail.com', logado: true },
+          { nome: 'Yuri', sobrenome: 'Barsotti', id: '3', senha: '1234', email: 'guilherme@hotmail.com', logado: true }
         ]
     },
     {
-      nome: 'Front-end', quadrosTime: [],
+      nome: 'Front-end',
       membros:
         [
-          { nome: 'Guilherme', id: '1', senha: '1234', email: 'guilherme@hotmail.com', quadros: [], logado: true },
-          { nome: 'Dhiego', id: '2', senha: '1234', email: 'guilherme@hotmail.com', quadros: [], logado: true },
-          { nome: 'Yuri', id: '3', senha: '1234', email: 'guilherme@hotmail.com', quadros: [], logado: true }
+          { nome: 'Guilherme', sobrenome: 'Guerra', id: '1', senha: '1234', email: 'guilherme@hotmail.com', logado: true },
+          { nome: 'Dhiego', sobrenome: 'Rodrigues', id: '2', senha: '1234', email: 'guilherme@hotmail.com', logado: true },
+          { nome: 'Yuri', sobrenome: 'Barsotti', id: '3', senha: '1234', email: 'guilherme@hotmail.com', logado: true }
         ]
     }
   ];

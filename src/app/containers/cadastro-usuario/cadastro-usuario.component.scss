@@ -8,7 +8,7 @@
 }
 
 .login-content {
-  height: 50vh;
+  height: 60vh;
 
   &-header {
     color: black;
@@ -20,14 +20,14 @@
     flex-direction: column;
 
     > span {
-        padding: 10px;
-        display: flex;
-        justify-content: center;
-      }
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+    }
 
-      > span:last-child{
-          font-weight: 500;
-      }
+    > span:last-child {
+      font-weight: 500;
+    }
   }
 
   &-input {
@@ -68,27 +68,6 @@
     }
   }
 
-  > button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background-color: #424cd6;
-    border-radius: 26px;
-    color: $white;
-    padding: 5px 20px;
-    cursor: pointer;
-    width: 80%;
-    font-size: 21px;
-    box-shadow: 0px 4px 0px 2px rgba(0, 0, 165, 1);
-    outline: none;
-
-    > span {
-      font-size: 24px;
-      padding-left: 10px;
-    }
-  }
-
   > span {
     font-size: 10px;
     text-decoration: underline;
@@ -99,6 +78,27 @@
 }
 
 .btn-cadastrar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: #424cd6;
+  border-radius: 26px;
+  color: $white;
+  padding: 5px 20px;
+  cursor: pointer;
+  width: 80%;
+  font-size: 21px;
+  box-shadow: 0px 4px 0px 2px rgba(0, 0, 165, 1);
+  outline: none;
+
+  > span {
+    font-size: 24px;
+    padding-left: 10px;
+  }
+}
+
+.btn-logar {
   border: 2px solid #808080;
   background: transparent;
   color: #808080;
@@ -110,7 +110,7 @@
   outline: none;
 }
 
-.btn-cadastrar:hover {
+.btn-logar:hover {
   background-color: #808080;
   cursor: pointer;
   box-shadow: 0px 1px 0px 1px rgba(70, 70, 70, 1);
@@ -127,7 +127,7 @@
   &-span {
     color: black;
     font-size: 12px;
-    padding: 55px 0px 10px 0px;
+    padding: 3vh;
   }
 }
 
@@ -137,7 +137,7 @@
 
 .header {
   background-color: $white;
-  border-bottom: 1px solid #CCCCCC;
+  border-bottom: 1px solid #cccccc;
   padding: 2vh 5vw 2vh 5vw;
 }
 
@@ -154,6 +154,15 @@
 .logo {
   padding-right: 5px;
   cursor: pointer;
+}
+
+.btn-invalid {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.password-invalid {
+  padding-bottom: 5px;
 }
 
 @media screen and (max-width: 768px) {
@@ -199,7 +208,7 @@
 
     &-header {
       font-size: 38px;
-      line-height: 5vh;
+      line-height: 3vh;
     }
   }
   .drop-login {

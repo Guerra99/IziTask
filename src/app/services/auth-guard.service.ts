@@ -8,9 +8,9 @@ export class AuthGuardService {
     private usuarioAutenticado = false;
     private contas: Conta[] =
         [
-            { id: '1', nome: 'Guilherme', email: 'guilherme@hotmail.com', senha: '1234', quadros: [], logado: false },
-            { id: '2', nome: 'Dhiego', email: 'dhiego@hotmail.com', senha: '1234', quadros: [], logado: false },
-            { id: '3', nome: 'Yuri', email: 'yuri@hotmail.com', senha: '1234', quadros: [], logado: false }
+            { id: '1', nome: 'Guilherme', sobrenome: 'Guerra', email: 'guilherme@hotmail.com', senha: '1234', logado: false },
+            { id: '2', nome: 'Dhiego', sobrenome: 'Rodrigues', email: 'dhiego@hotmail.com', senha: '1234', logado: false },
+            { id: '3', nome: 'Yuri', sobrenome: 'Barsotti', email: 'yuri@hotmail.com', senha: '1234', logado: false }
         ];
 
     constructor(private router: Router) { }
@@ -23,7 +23,6 @@ export class AuthGuardService {
         } else {
             this.usuarioAutenticado = false;
         }
-        console.log('entrou');
     }
 
     deslogar(contaUsuario: Conta) {

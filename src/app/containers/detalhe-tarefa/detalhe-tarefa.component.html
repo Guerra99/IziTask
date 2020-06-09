@@ -1,3 +1,4 @@
+<app-modal [show]="showModal" [modalConfiguration]="modalConfig"></app-modal>
 <app-header-izi></app-header-izi>
 <div style="padding: 10vh;">
     <div style="border-bottom: 1px solid #D5D5D5;
@@ -35,7 +36,7 @@
                     background-color: #424CD6;
                     color: white;
                     border-radius: 6px;
-                    padding: 5px;">Excluir tarefa</button>
+                    padding: 5px;" (click)="openModal()">Excluir tarefa</button>
                 </div>
             </div>
         </div>
