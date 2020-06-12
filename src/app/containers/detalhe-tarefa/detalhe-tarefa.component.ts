@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ModalConfigurationInterface } from 'src/app/components/modal/modal.configuration.interface';
 import { ModalType } from 'src/app/components/modal/modal.-type.enum';
+import { Tarefa } from 'src/app/models/tarefa.model';
+import { IziService } from 'src/app/services/izi.service';
 
 @Component({
   selector: 'app-detalhe-tarefa',
@@ -9,9 +11,13 @@ import { ModalType } from 'src/app/components/modal/modal.-type.enum';
 })
 export class DetalheTarefaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private iziService: IziService) { }
+
+  @Input() tarefaSelecionada: Tarefa;
+  @Output() voltarQuadroBacklogEvent: EventEmitter<void> = new EventEmitter<void>();
 
   showModal = false;
+  nomeQuadro = '';
 
   modalConfig: ModalConfigurationInterface = {
     modalType: ModalType.warning,
@@ -29,9 +35,14 @@ export class DetalheTarefaComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.nomeQuadro = this.iziService.getQuadros().find(x => x.idQuadro === this.tarefaSelecionada.idQuadro).nomeQuadro;
   }
 
   openModal() {
     this.showModal = true;
+  }
+
+  voltarQuadroBacklog() {
+    this.voltarQuadroBacklogEvent.emit();
   }
 }

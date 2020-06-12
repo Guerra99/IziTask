@@ -1,6 +1,22 @@
-<app-menu-quadros *ngIf="painelMenuQuadros"></app-menu-quadros>
-<app-quadro-backlog *ngIf="painelQuadroBacklog"></app-quadro-backlog>
-<app-cadastro-tarefa *ngIf="painelCadastroTarefa"></app-cadastro-tarefa>
-<app-detalhe-tarefa *ngIf="painelTarefaDetalhe"></app-detalhe-tarefa>
-<app-meu-izi *ngIf="painelMeuIzi"></app-meu-izi>
-<app-novo-time *ngIf="painelNovoTime"></app-novo-time>
+<app-modal-invite [show]="showModalInvite" (fecharModalInviteEvent)="fecharModalInvite()"></app-modal-invite>
+<app-landing-page *ngIf="painelLanding" (openLogin)="openLogin()" (openCadastroUsuario)="openCadastroUsuario()">
+</app-landing-page>
+<app-login *ngIf="painelLogin" (openMenuQuadrosEvent)="openMenuQuadros()" (openLandingEvent)="openLanding()"
+    (openCadastroUsuarioEvent)="openCadastroUsuario()"></app-login>
+<app-cadastro-usuario *ngIf="painelCadastroUsuario" (openLandingEvent)="openLanding()" (openLoginEvent)="openLogin()">
+</app-cadastro-usuario>
+<div *ngIf="!painelLanding && !painelLogin && !painelCadastroUsuario">
+    <app-header-izi (redirectMenuEvent)="openMenuQuadros()" (redirectLandingEvent)="openLanding()"></app-header-izi>
+    <div style="display: flex;">
+        <app-sidebar *ngIf="painelMenuQuadros || painelMeuIzi || painelNovoTime"
+            (openMenuQuadrosEvent)="openMenuQuadros()" (openMeuIziEvent)="openMeuIzi()"
+            (openNovoTimeEvent)="openNovoTime()" (modalEvent)="openModalInvite()" [itemSidebar]="sidebarItem"></app-sidebar>
+        <app-menu-quadros *ngIf="painelMenuQuadros" (openQuadroBacklogEvent)="openQuadroBacklog($event)">
+        </app-menu-quadros>
+        <app-meu-izi *ngIf="painelMeuIzi"></app-meu-izi>
+        <app-novo-time *ngIf="painelNovoTime"></app-novo-time>
+    </div>
+    <app-quadro-backlog *ngIf="painelQuadroBacklog" [quadroSelecionado]="quadroSelecionado" (openTarefaDetalheEvent)="openTarefaDetalhe($event)" (openCadastroTarefaEvent)="openCadastroTarefa($event)"></app-quadro-backlog>
+    <app-cadastro-tarefa [quadroSelecionado]="quadroSelecionado" *ngIf="painelCadastroTarefa"></app-cadastro-tarefa>
+    <app-detalhe-tarefa [tarefaSelecionada]="tarefaSelecionada" (voltarQuadroBacklogEvent)="openQuadroBacklog($event)" *ngIf="painelTarefaDetalhe"></app-detalhe-tarefa>
+</div>

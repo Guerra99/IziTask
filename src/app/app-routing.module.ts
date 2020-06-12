@@ -15,51 +15,11 @@ import { IziContainerComponent } from './containers/izi-container.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: LandingPageComponent
+    path: 'izi-task',
+    component: IziContainerComponent
   },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'cadastro-usuario',
-    component: CadastroUsuarioComponent,
-  },
-  {
-    path: 'izi',
-    component: IziContainerComponent,
-  }
-  // {
-  //   path: 'menu-quadros',
-  //   component: MenuQuadrosComponent,
-  //   // canActivate: [AuthGuard],
-  //   // canLoad: [AuthGuard]
-  // },
-  // {
-  //   path: 'meu-izi',
-  //   component: MeuIziComponent,
-  //   // canActivate: [AuthGuard],
-  //   // canLoad: [AuthGuard]
-  // },
-  // {
-  //   path: 'novo-time',
-  //   component: NovoTimeComponent,
-  //   // canActivate: [AuthGuard],
-  //   // canLoad: [AuthGuard]
-  // },
-  // {
-  //   path: 'quadro-backlog',
-  //   component: QuadroBacklogComponent
-  // },
-  // {
-  //   path: 'cadastro-tarefa',
-  //   component: CadastroTarefaComponent
-  // },
-  // {
-  //   path: 'detalhe-tarefa',
-  //   component: DetalheTarefaComponent
-  // }
+  { path: '', redirectTo: 'izi-task', pathMatch: 'full' },
+  { path: '**', redirectTo: 'izi-task', pathMatch: 'full' },
 ];
 
 @NgModule({

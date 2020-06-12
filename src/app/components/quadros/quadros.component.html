@@ -6,29 +6,70 @@
     <div>
         <div class="container">
             <div class="quadro-container" *ngFor="let fav of quadrosFavoritos">
-                <div style="cursor: pointer;">
+                <div style="cursor: pointer;" (click)="onClickQuadro(fav)">
                     <span class="nome-quadro">{{ fav.nomeQuadro }}</span>
                 </div>
+                <div style="display: flex;
+                align-items: center;
+                border-bottom: 1px dotted #00ACA1;
+                color: #0b4d89;
+                font-weight: bold;">
+                    <span class="material-icons" style="font-size: 16px; padding: 5px;">group</span>
+                    <span>{{ fav.equipe.nome }}</span>
+                </div>
                 <div class="quadro-fav">
-                    <span class="material-icons" style="cursor: pointer;" (click)="addFavorito(fav)"
-                        *ngIf="fav.favorito">star</span>
+                    <div style="display: flex; align-items: center; color: #0b4d89; font-weight: bold;" matTooltip="To Do">
+                        <span class="material-icons" style="font-size: 21px;">list</span>
+                        <span style="font-size: 14px;">{{ fav.tarefasToDo }}</span>
+                    </div>
+                    <div style="display: flex; align-items: center; color: #0b4d89; font-weight: bold;" matTooltip="Progress">
+                        <span class="material-icons" style="font-size: 21px;">loop</span>
+                        <span style="font-size: 14px;">{{ fav.tarefasProgress }}</span>
+                    </div>
+                    <div style="display: flex; align-items: center; color: #0b4d89; font-weight: bold;" matTooltip="Done">
+                        <span class="material-icons" style="font-size: 21px;">check_box</span>
+                        <span style="font-size: 14px;">{{ fav.tarefasDone }}</span>
+                    </div>
+                    <span class="material-icons" (click)="addFavorito(fav)" *ngIf="fav.favorito">star</span>
+                    <span class="material-icons" (click)="addFavorito(fav)" *ngIf="!fav.favorito">star_outline</span>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div style="padding-top: 5vh; height: 75vh;">
+<div style="padding-top: 5vh;">
     <div style="padding-bottom: 10px; display: flex; align-items: center;">
         <span class="material-icons" style="border: 1.5px solid black; border-radius: 6px; font-size: 20px;">list</span>
         <span style="padding-left: 5px; font-size: 18px;">Quadros</span>
     </div>
     <div class="container">
         <div *ngFor="let quadro of quadros" class="quadro-container">
-            <div>
+            <div style="cursor: pointer;" (click)="onClickQuadro(quadro)">
                 <span class="nome-quadro">{{ quadro.nomeQuadro }}</span>
             </div>
+            <div style="display: flex;
+            align-items: center;
+            border-bottom: 1px dotted #00ACA1;
+            color: #0b4d89;
+            font-weight: bold;">
+                <span class="material-icons" style="font-size: 16px; padding: 5px;">group</span>
+                <span>{{ quadro.equipe.nome }}</span>
+            </div>
             <div class="quadro-fav">
-                <span class="material-icons" (click)="addFavorito(quadro)">star</span>
+                <div style="display: flex; align-items: center; color: #0b4d89; font-weight: bold;" matTooltip="To Do">
+                    <span class="material-icons" style="font-size: 21px;">list</span>
+                    <span style="font-size: 14px;">{{ quadro.tarefasToDo }}</span>
+                </div>
+                <div style="display: flex; align-items: center; color: #0b4d89; font-weight: bold;" matTooltip="Progress">
+                    <span class="material-icons" style="font-size: 21px;">loop</span>
+                    <span style="font-size: 14px;">{{ quadro.tarefasProgress }}</span>
+                </div>
+                <div style="display: flex; align-items: center; color: #0b4d89; font-weight: bold;" matTooltip="Done">
+                    <span class="material-icons" style="font-size: 21px;">check_box</span>
+                    <span style="font-size: 14px;">{{ quadro.tarefasDone }}</span>
+                </div>
+                <span class="material-icons" (click)="addFavorito(quadro)" *ngIf="quadro.favorito">star</span>
+                <span class="material-icons" (click)="addFavorito(quadro)" *ngIf="!quadro.favorito">star_outline</span>
             </div>
         </div>
         <div class="quadro-add">
@@ -36,4 +77,3 @@
         </div>
     </div>
 </div>
-<app-card-time></app-card-time>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { AuthGuardService } from 'src/app/services/auth-guard.service';
 import { Conta } from 'src/app/models/conta.model';
 
@@ -10,6 +10,9 @@ import { Conta } from 'src/app/models/conta.model';
 export class HeaderIziComponent implements OnInit {
 
   usuario: Conta;
+
+  @Output() redirectMenuEvent: EventEmitter<void> = new EventEmitter<void>();
+  @Output() redirectLandingEvent: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private authService: AuthGuardService) { }
 
@@ -23,5 +26,13 @@ export class HeaderIziComponent implements OnInit {
 
   deslogar() {
     // this.authService.deslogar(this.usuario);
+  }
+
+  redirectMenu() {
+    this.redirectMenuEvent.emit();
+  }
+
+  redirectLanding() {
+    this.redirectLandingEvent.emit();
   }
 }

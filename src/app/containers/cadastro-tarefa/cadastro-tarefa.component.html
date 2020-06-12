@@ -1,9 +1,9 @@
-<app-header-izi></app-header-izi>
+<!-- <app-header-izi></app-header-izi> -->
 <div style="padding: 10vh;">
     <div style="border-bottom: 1px solid #D5D5D5;
     font-size: 30px;
     padding: 15px;">
-        <span>Quadro XYZ</span>
+        <span>{{quadroSelecionado.nomeQuadro}}</span>
     </div>
     <div style="display: flex">
         <div style="padding: 5vh;">
@@ -14,19 +14,19 @@
             height: 10vh;
             justify-content: space-around; padding: 5px;">
                 <span style="font-size: 18px;">Criar tarefa</span>
-                <span style="font-size: 12px; color: #B6B3B3;">clique no time para adicionar uma tarefa</span>
+                <span style="font-size: 12px; color: #B6B3B3;">Adicione uma tarefa ao seu backlog</span>
             </div>
             <div>
                 <div style="height: 30px;
                 display: flex;
                 align-items: center;
-                background-color: chocolate;
+                background-color: #00ACA1;
                 padding: 10px;
                 color: white; justify-content: space-between;">
-                    <span>TIME 1</span>
+                    <span>{{ quadroSelecionado.equipe.nome }}</span>
                     <span class="material-icons">add</span>
                 </div>
-                <div style="height: 30px;
+                <!-- <div style="height: 30px;
                 display: flex;
                 align-items: center;
                 background-color: greenyellow;
@@ -49,7 +49,7 @@
                 padding: 10px; color: white; justify-content: space-between;">
                     <span>TIME 4</span>
                     <span class="material-icons">add</span>
-                </div>
+                </div> -->
             </div>
         </div>
         <div style="display: flex;
@@ -59,7 +59,8 @@
             <div style="display: flex;
             flex-direction: column;">
                 <span style="color: #7E7E7E;">Descrição</span>
-                <textarea rows="10" style="border:1px solid #CFCFCF; outline: none; border-radius: 6px; padding: 5px;"></textarea>
+                <textarea rows="10"
+                    style="border:1px solid #CFCFCF; outline: none; border-radius: 6px; padding: 5px;"></textarea>
             </div>
             <div style="display: flex;
             flex-direction: column;">

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QuadrosComponent } from './quadros.component';
 import { CardTimeModule } from '../../components/card-time/card-time.module';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -10,7 +11,7 @@ import { CardTimeModule } from '../../components/card-time/card-time.module';
         QuadrosComponent
     ],
     imports: [
-        CommonModule, CardTimeModule
+        CommonModule, CardTimeModule, MatTooltipModule
     ],
     exports: [
         QuadrosComponent

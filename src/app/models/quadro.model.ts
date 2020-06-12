@@ -7,4 +7,7 @@ export class Quadro {
     favorito: boolean;
     equipe: Equipe;
     idsTarefas: string[];
+    tarefasToDo: number;
+    tarefasProgress: number;
+    tarefasDone: number;
 }

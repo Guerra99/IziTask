@@ -1,6 +1,6 @@
 <div class="container">
     <div class="header">
-        <div class="logo">
+        <div class="logo" (click)="redirectMenu()">
             <img src="./../../../assets/logo-izi.png">
         </div>
         <div class="header-descricao">
@@ -13,8 +13,8 @@
             <div class="header-account">
                 <span class="user-name">Olá, Guilherme</span>
                 <span></span>
-                <span class="header-account-link">Configurações</span>
-                <span class="header-account-link" (click)="deslogar()">Sair</span>
+                <span class="header-account-link" matTooltip="Em breve">Configurações</span>
+                <span class="header-account-link" (click)="redirectLanding()">Sair</span>
             </div>
         </div>
     </div>

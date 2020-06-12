@@ -1,3 +1,4 @@
+<app-modal [show]="showModal" [modalConfiguration]="modalConfig"></app-modal>
 <div class="container" style="background-color: white;">
     <div class="header">
         <div class="header-flex">
@@ -13,7 +14,7 @@
             </div>
             <div class="login-content-input">
                 <div class="drop-login">
-                    <form [formGroup]="contaForm" (ngSubmit)="logar(contaForm.value)">
+                    <form [formGroup]="contaForm" (ngSubmit)="login()">
                         <div class="drop-login-input">
                             <i class="material-icons">
                                 person
@@ -34,7 +35,6 @@
                             </button>
                         </div>
                     </form>
-                    <span>Esqueci minha senha</span>
                 </div>
             </div>
             <div class="content-cadastro">

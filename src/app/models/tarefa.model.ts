@@ -5,4 +5,5 @@ export class Tarefa {
     descricao: string;
     responsavel: string;
     status: string;
+    idQuadro: string;
 }

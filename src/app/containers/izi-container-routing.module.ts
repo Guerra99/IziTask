@@ -6,26 +6,21 @@ import { NovoTimeComponent } from '../containers/novo-time/novo-time.component';
 import { QuadroBacklogComponent } from './quadro-backlog/quadro-backlog.component';
 import { CadastroTarefaComponent } from '../containers/cadastro-tarefa/cadastro-tarefa.component';
 import { DetalheTarefaComponent } from '../containers/detalhe-tarefa/detalhe-tarefa.component';
+import { IziContainerComponent } from './izi-container.component';
 
 
 const routes: Routes = [
     {
         path: 'menu-quadros',
         component: MenuQuadrosComponent,
-        // canActivate: [AuthGuard],
-        // canLoad: [AuthGuard]
     },
     {
         path: 'meu-izi',
         component: MeuIziComponent,
-        // canActivate: [AuthGuard],
-        // canLoad: [AuthGuard]
     },
     {
         path: 'novo-time',
         component: NovoTimeComponent,
-        // canActivate: [AuthGuard],
-        // canLoad: [AuthGuard]
     },
     {
         path: 'quadro-backlog',
@@ -38,7 +33,7 @@ const routes: Routes = [
     {
         path: 'detalhe-tarefa',
         component: DetalheTarefaComponent
-    }
+    },
 ];
 
 @NgModule({

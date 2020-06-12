@@ -1,0 +1,14 @@
+.tarefa {
+    font-weight: bold;
+    &-todo {
+        background-color: lightyellow;
+    }
+
+    &-progress {
+        background-color: lightblue;
+    }
+
+    &-done {
+        background-color: lightgreen;
+    }
+}

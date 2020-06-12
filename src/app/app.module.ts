@@ -4,9 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LandingPageModule } from './containers/landing-page/landing-page.module';
-import { CadastroUsuarioModule } from './containers/cadastro-usuario/cadastro-usuario.module';
-import { LoginModule } from './containers/login/login.module';
 
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthGuard } from './guard/auth-guard';
@@ -26,9 +23,6 @@ import { IziContainerModule } from './containers/izi-container.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    LandingPageModule,
-    LoginModule,
-    CadastroUsuarioModule,
     HttpClientModule,
     ApolloModule,
     HttpLinkModule,

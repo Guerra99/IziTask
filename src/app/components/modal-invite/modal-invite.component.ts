@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-modal-invite',
@@ -10,8 +10,13 @@ export class ModalInviteComponent implements OnInit {
   constructor() { }
 
   @Input() public show = false;
+  @Output() fecharModalInviteEvent: EventEmitter<void> = new EventEmitter<void>();
 
   ngOnInit(): void {
+  }
+
+  fecharModal() {
+    this.fecharModalInviteEvent.emit();
   }
 
 }

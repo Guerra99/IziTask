@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatMenuTrigger } from '@angular/material/menu';
 
@@ -12,6 +12,8 @@ export class LandingPageComponent implements OnInit {
   showLogin = false;
 
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+  @Output() openLogin: EventEmitter<void> = new EventEmitter<void>();
+  @Output() openCadastroUsuario: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private router: Router) { }
 
@@ -24,10 +26,10 @@ export class LandingPageComponent implements OnInit {
   }
 
   redirectLogin() {
-    this.router.navigate(['/login']);
+    this.openLogin.emit();
   }
 
   redirectCadastroUsuario() {
-    this.router.navigate(['/cadastro-usuario']);
+    this.openCadastroUsuario.emit();
   }
 }

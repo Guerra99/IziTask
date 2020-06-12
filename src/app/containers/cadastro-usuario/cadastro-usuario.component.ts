@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Apollo } from 'apollo-angular';
-import { CREATE_ACCOUNT_MUTATION } from './graphql';
+import { CREATE_ACCOUNT_MUTATION } from '../../services/graphql';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalConfigurationInterface } from 'src/app/components/modal/modal.configuration.interface';
 import { ModalType } from 'src/app/components/modal/modal.-type.enum';
@@ -43,6 +43,9 @@ export class CadastroUsuarioComponent implements OnInit {
 
   usuarioForm: FormGroup;
 
+  @Output() openLandingEvent: EventEmitter<void> = new EventEmitter<void>();
+  @Output() openLoginEvent: EventEmitter<void> = new EventEmitter<void>();
+
   constructor(private router: Router, private apollo: Apollo, private fb: FormBuilder) {
     this.usuarioForm = this.fb.group({
       nome: ['', Validators.required],
@@ -56,7 +59,7 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   redirectLanding() {
-    this.router.navigate(['']);
+    this.openLandingEvent.emit();
   }
 
   createAccount() {
@@ -78,12 +81,6 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   redirectLogin() {
-    this.router.navigate(['/login']);
-  }
-
-  getErrorMessage() {
-    if (this.usuarioForm.get('email').hasError('required')) {
-      return 'You must enter a value';
-    }
+    this.openLoginEvent.emit();
   }
 }

@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Quadro } from 'src/app/models/quadro.model';
+import { IziService } from 'src/app/services/izi.service';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-quadros',
@@ -9,6 +11,8 @@ import { Quadro } from 'src/app/models/quadro.model';
 export class QuadrosComponent implements OnInit {
 
   // @Input() quadros: [] = [];
+  @Output() quadroSelecionadoEvent: EventEmitter<Quadro> = new EventEmitter<Quadro>();
+
   quadros: Quadro[] =
     [
       {
@@ -18,8 +22,17 @@ export class QuadrosComponent implements OnInit {
         equipe: {
           nome: 'Dev',
           membros: [{ id: '1', nome: 'Guilherme', sobrenome: 'Guerra', email: 'guilherme@hotmail.com', senha: '123456', logado: true }]
-        }
+        }, tarefasToDo: 0, tarefasProgress: 0, tarefasDone: 0
       },
+      {
+        idQuadro: '2', nomeQuadro: 'Projeto mobile',
+        idsTarefas: ['6', '7', '8', '9'],
+        favorito: false,
+        equipe: {
+          nome: 'Dev',
+          membros: [{ id: '1', nome: 'Guilherme', sobrenome: 'Guerra', email: 'guilherme@hotmail.com', senha: '123456', logado: true }]
+        }, tarefasToDo: 0, tarefasProgress: 0, tarefasDone: 0
+      }
       // { idQuadro: '2', nomeQuadro: 'Criar endpoints', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } },
       // { idQuadro: '3', nomeQuadro: 'Layout da web', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } },
       // { idQuadro: '4', nomeQuadro: 'Componentizar a web', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } },
@@ -30,11 +43,16 @@ export class QuadrosComponent implements OnInit {
       // { idQuadro: '9', nomeQuadro: 'Bugs do app', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } }
     ];
 
+  tarefasToDo = 0;
+  tarefasProgress = 0;
+  tarefasDone = 0;
+
   quadrosFavoritos: Quadro[] = [];
 
-  constructor() { }
+  constructor(private iziService: IziService) { }
 
   ngOnInit(): void {
+    this.classificarTarefas();
   }
 
   addFavorito(quadro: Quadro) {
@@ -45,7 +63,26 @@ export class QuadrosComponent implements OnInit {
       this.quadrosFavoritos.splice(index, 1);
     } else {
       quadro.favorito = true;
-      this.quadrosFavoritos.unshift(quadro);
+      this.quadrosFavoritos.push(quadro);
     }
+  }
+
+  onClickQuadro(quadro: Quadro) {
+    this.quadroSelecionadoEvent.emit(quadro);
+  }
+
+  classificarTarefas() {
+    this.quadros.forEach(item => {
+      const tarefasQuadro = this.iziService.getTarefas(item.idQuadro);
+      tarefasQuadro.forEach(task => {
+        if (task.status === 'TODO') {
+          item.tarefasToDo++;
+        } else if (task.status === 'PROGRESS') {
+          item.tarefasProgress++;
+        } else {
+          item.tarefasDone++;
+        }
+      });
+    });
   }
 }
