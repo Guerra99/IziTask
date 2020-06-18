@@ -1,0 +1,79 @@
+.modal-background {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1003;
+    top: 0;
+
+    > .modal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 60px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30vw;
+        border-radius: 6px;
+        background-color: white;
+
+        > .modal-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            padding-top: 5px;
+
+            > p {
+                margin: 0;
+                font-size: 18px;
+                font-family: "Roboto", sans-serif;
+                font-weight: 400;
+                color: black;
+                padding: 10px;
+                text-align: center;
+            }
+        }
+        > .modal-footer {
+            height: 42px;
+            width: 100%;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            background-color: white;
+            display: flex;
+            border-top: 1px solid #cccccc;
+
+            > button {
+                height: 42px;
+                width: 100%;
+                cursor: pointer;
+                font-size: 15px;
+                font-weight: bold;
+                font-family: "Roboto", sans-serif;
+                border: none;
+                background-color: transparent;
+
+                &:first-child {
+                    border-bottom-left-radius: 5px;
+                    border-right: 1px solid #cccccc;
+                }
+                &:last-child {
+                    border-bottom-right-radius: 5px;
+                }
+            }
+        }
+    }
+}
+
+.border-top {
+    background-color: #0b4d89;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    height: 6px;
+    width: 100%;
+}
+
+.icon {
+    color: #0b4d89;
+}

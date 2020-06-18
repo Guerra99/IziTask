@@ -7,6 +7,7 @@ import { Apollo } from 'apollo-angular';
 import { LOGIN } from 'src/app/services/graphql';
 import { ModalConfigurationInterface } from 'src/app/components/modal/modal.configuration.interface';
 import { ModalType } from 'src/app/components/modal/modal.-type.enum';
+import { IziService } from 'src/app/services/izi.service';
 
 @Component({
   selector: 'app-login',
@@ -30,15 +31,16 @@ export class LoginComponent implements OnInit {
 
   modalConfig: ModalConfigurationInterface;
 
-  contaUsuario = new Conta();
+  usuarioLogado = '';
+  usuarioLogadoJSON: Conta = null;
   contaForm: FormGroup;
 
-  @Output() openMenuQuadrosEvent: EventEmitter<void> = new EventEmitter<void>();
+  @Output() openMenuQuadrosEvent: EventEmitter<Conta> = new EventEmitter<Conta>();
   @Output() openLandingEvent: EventEmitter<void> = new EventEmitter<void>();
   @Output() openCadastroUsuarioEvent: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(
-    private router: Router,
+    private iziService: IziService,
     private authService: AuthGuardService,
     private fb: FormBuilder,
     private apollo: Apollo) {
@@ -78,7 +80,8 @@ export class LoginComponent implements OnInit {
       }
     }).subscribe(res => {
 
-      console.log(res);
+      this.usuarioLogado = this.iziService.getUsuarioConta(this.contaForm.get('email').value);
+      this.usuarioLogadoJSON = JSON.parse(this.usuarioLogado);
       // const user: Conta = {
       //   email: this.contaForm.get('email').value,
       //   senha: this.contaForm.get('senha').value,
@@ -88,7 +91,7 @@ export class LoginComponent implements OnInit {
       //   logado: true
       // };
 
-      this.openMenuQuadrosEvent.emit();
+      this.openMenuQuadrosEvent.emit(this.usuarioLogadoJSON);
     }, err => {
       this.showModal = true;
       this.modalConfig = this.modalError;

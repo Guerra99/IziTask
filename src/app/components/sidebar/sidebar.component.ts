@@ -12,14 +12,16 @@ export class SidebarComponent implements OnInit {
 
   listItemsSidebar =
     [
-      { nome: 'Quadros', icon: 'list', value: 1, activated: false },
-      { nome: 'Meu IZI', icon: 'person', value: 2, activated: false },
-      { nome: 'Novo time', icon: 'group', value: 3, activated: false },
-      { nome: 'Convidar amigo', icon: 'mail', value: 4, activated: false }
+      { nome: 'Dashboard', icon: 'timeline', value: 1, activated: false },
+      { nome: 'Quadros', icon: 'list', value: 2, activated: false },
+      { nome: 'Meu IZI', icon: 'person', value: 3, activated: false },
+      { nome: 'Novo time', icon: 'group_add', value: 4, activated: false },
+      { nome: 'Convidar amigo', icon: 'mail', value: 5, activated: false }
     ];
 
   @Input() itemSidebar: number;
   @Output() modalEvent: EventEmitter<void> = new EventEmitter<void>();
+  @Output() openDashboardEvent: EventEmitter<void> = new EventEmitter<void>();
   @Output() openMenuQuadrosEvent: EventEmitter<void> = new EventEmitter<void>();
   @Output() openMeuIziEvent: EventEmitter<void> = new EventEmitter<void>();
   @Output() openNovoTimeEvent: EventEmitter<void> = new EventEmitter<void>();
@@ -36,26 +38,29 @@ export class SidebarComponent implements OnInit {
   }
 
   onClickSidebar(value: number) {
-    if (value !== 4) {
+    if (value !== 5) {
       this.listItemsSidebar.forEach(x => {
         x.activated = false;
       });
     }
 
     this.listItemsSidebar.find(x => x.value === value).activated = true;
-    this.listItemsSidebar[3].activated = false;
+    this.listItemsSidebar[4].activated = false;
 
     switch (value) {
       case 1:
-        this.openMenuQuadrosEvent.emit();
+        this.openDashboardEvent.emit();
         break;
       case 2:
-        this.openMeuIziEvent.emit();
+        this.openMenuQuadrosEvent.emit();
         break;
       case 3:
-        this.openNovoTimeEvent.emit();
+        this.openMeuIziEvent.emit();
         break;
       case 4:
+        this.openNovoTimeEvent.emit();
+        break;
+      case 5:
         this.modalEvent.emit();
         break;
     }

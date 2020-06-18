@@ -1,0 +1,47 @@
+<div class="modal-background">
+    <div class="modal">
+
+        <div class="border-top"></div>
+
+        <div class="modal-body">
+            <i class="material-icons icon">edit</i>
+            <p>Novo quadro</p>
+        </div>
+        <!-- <form style="display: flex;
+        justify-content: center;
+        padding: 10px;" [formGroup]="quadroForm" (ngSubmit)="cadastrarQuadro(quadroForm.value)"> -->
+            <div class="modal-input" style="flex-direction: column;">
+                <div style="padding: 5px;">
+                    <span style="padding: 5px;">Título:</span>
+                    <input type="text" style="border: none;
+                    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
+                    padding: 5px;
+                    width: 20vw;" placeholder="Nome do projeto">
+                </div>
+                <div style="padding: 5px;">
+                    <span style="padding: 5px;">Equipe:</span>
+                    <input style="padding: 5px;
+                    border: none;
+                    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
+                    width: 15vw;" placeholder="Atribuia uma equipe ao projeto">
+                </div>
+                <div style="padding: 5px;">
+                    <span style="padding: 5px;">Tempo estimado:</span>
+                    <input style="padding: 5px;
+                    border: none;
+                    box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
+                    width: 11vw;" placeholder="Quantidade de tempo(h)">
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button (click)="fecharModal()">Cancelar</button>
+                <button type="button" (click)="cadastrarQuadro()">
+                    Confirmar
+                </button>
+            </div>
+        <!-- </form> -->
+
+    </div>
+
+</div>

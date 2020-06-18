@@ -2,8 +2,17 @@
 <div style="padding: 10vh;">
     <div style="border-bottom: 1px solid #D5D5D5;
     font-size: 30px;
-    padding: 15px;">
-        <span>{{quadroSelecionado.nomeQuadro}}</span>
+    padding: 15px; display: flex;
+    align-items: center;">
+        <span>{{ quadro.nomeQuadro }}</span>
+        <div style="padding-left: 15px;">
+            <button style="border: none;
+            border-radius: 20px;
+            background-color: #6D6D6D;
+            color: white;
+            padding: 5px 10px 5px 10px;
+            cursor: pointer;" (click)="voltarMenuQuadros()">Voltar</button>
+        </div>
     </div>
     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;">
         <div style="padding: 5vh;">
@@ -23,7 +32,7 @@
                 background-color: #00ACA1;
                 padding: 10px;
                 color: white; justify-content: space-between; cursor: pointer;" (click)="openCadastroTarefa()">
-                    <span>{{ quadroSelecionado.equipe.nome }}</span>
+                    <span>{{ quadro.time }}</span>
                     <span class="material-icons">add</span>
                 </div>
             </div>

@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Quadro } from 'src/app/models/quadro.model';
+import { Conta } from 'src/app/models/conta.model';
 
 @Component({
   selector: 'app-menu-quadros',
@@ -10,22 +11,19 @@ export class MenuQuadrosComponent implements OnInit {
 
   constructor() { }
 
-  @Output() openQuadroBacklogEvent: EventEmitter<Quadro> = new EventEmitter<Quadro>();
-
-  // list = [{ titulo: 'A', status: 'A', responsavel: 'A' },
-  // { titulo: 'B', status: 'B', responsavel: 'B' },
-  // { titulo: 'C', status: 'C', responsavel: 'C' },
-  // { titulo: 'D', status: 'D', responsavel: 'D' }];
-
-  // key = 'LIST';
+  @Input() usuario: Conta;
+  @Output() openQuadroBacklogEvent: EventEmitter<void> = new EventEmitter<void>();
+  @Output() openCriarQuadroEvent: EventEmitter<void> = new EventEmitter<void>();
 
   ngOnInit(): void {
-    // localStorage.setItem(this.key, JSON.stringify(this.list));
-    // let name = localStorage.getItem('LIST');
-    // alert(name);
+
   }
 
-  openBacklog(quadro: Quadro) {
-    this.openQuadroBacklogEvent.emit(quadro);
+  openBacklog() {
+    this.openQuadroBacklogEvent.emit();
+  }
+
+  addQuadro() {
+    this.openCriarQuadroEvent.emit();
   }
 }

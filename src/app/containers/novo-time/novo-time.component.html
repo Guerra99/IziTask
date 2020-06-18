@@ -2,6 +2,7 @@
 <!-- <app-header-izi></app-header-izi> -->
 <!-- <app-sidebar [item]="3">
     </app-sidebar> -->
+<!-- <app-modal [show]="showModal" [modalConfiguration]="modalConfig"></app-modal> -->
 <div style="display: flex;">
     <form style="width: 30vw; padding-top: 5vh;">
         <div style="display: flex; flex-direction: column;">
@@ -15,11 +16,11 @@
                     box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
                     height: 30px; padding: 5px;">
                 </div>
-                <div style="display: flex; flex-direction: column; margin-top: 15px;">
+                <!-- <div style="display: flex; flex-direction: column; margin-top: 15px;">
                     <label style="padding-bottom: 5px; color: #7e7e7e;">Categoria</label>
                     <input type="text" style="border: none;
                     box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
-                    height: 30px; padding: 5px;"> </div>
+                    height: 30px; padding: 5px;"> </div> -->
                 <div style="display: flex; flex-direction: column; margin-top: 15px;">
                     <label style="padding-bottom: 5px; color: #7e7e7e;">Descrição</label>
                     <textarea type="text" style="border: none;
@@ -37,7 +38,7 @@
                 background-color: #424cd6;
                 border-radius: 6px;
                 color: white;
-                padding: 10px; cursor: pointer;">Criar time</button>
+                padding: 10px; cursor: pointer;" (click)="criarTime()">Criar time</button>
             </div>
         </div>
     </form>

@@ -1,8 +1,8 @@
-<div style="display: flex; align-items: center;">
+<div style="display: flex; align-items: center;" *ngIf="time !== 'null'">
     <span class="material-icons" style="padding: 10px;">group</span>
     <span style="font-size: 18px;">Times</span>
 </div>
-<div class="card" *ngFor="let time of teams; index as i">
+<!-- <div class="card" *ngFor="let time of teams; index as i">
     <div class="border-card">
     </div>
     <div class="team-name">
@@ -13,6 +13,91 @@
     </div>
     <div class="users">
         <span>Usuários: {{ time.membros[i].nome }}</span>
+    </div>
+    <div class="options">
+        <i class="material-icons">create</i>
+        <i class="material-icons">delete</i>
+    </div>
+</div> -->
+<!-- <div class="card">
+    <div class="border-card">
+    </div>
+    <div class="team-name">
+        <span>BackEnd</span>
+    </div>
+    <div class="boards">
+        <span>Projetos: 1</span>
+    </div>
+    <div class="users">
+        <span>Usuários: DM, YB</span>
+    </div>
+    <div class="options">
+        <i class="material-icons">create</i>
+        <i class="material-icons">delete</i>
+    </div>
+</div>
+<div class="card">
+    <div class="border-card">
+    </div>
+    <div class="team-name">
+        <span>FrontEnd</span>
+    </div>
+    <div class="boards">
+        <span>Projetos: 1</span>
+    </div>
+    <div class="users">
+        <span>Usuários: GG, DH</span>
+    </div>
+    <div class="options">
+        <i class="material-icons">create</i>
+        <i class="material-icons">delete</i>
+    </div>
+</div>
+<div class="card">
+    <div class="border-card">
+    </div>
+    <div class="team-name">
+        <span>UX/UI</span>
+    </div>
+    <div class="boards">
+        <span>Projetos: 2</span>
+    </div>
+    <div class="users">
+        <span>Usuários: AS, BO</span>
+    </div>
+    <div class="options">
+        <i class="material-icons">create</i>
+        <i class="material-icons">delete</i>
+    </div>
+</div>
+<div class="card">
+    <div class="border-card">
+    </div>
+    <div class="team-name">
+        <span>Suporte/Infra</span>
+    </div>
+    <div class="boards">
+        <span>Projetos: 2</span>
+    </div>
+    <div class="users">
+        <span>Usuários: VM, GO, MS</span>
+    </div>
+    <div class="options">
+        <i class="material-icons">create</i>
+        <i class="material-icons">delete</i>
+    </div>
+</div> -->
+<div class="card" *ngIf="time !== 'null'">
+    <div class="border-card">
+    </div>
+    <div class="team-name">
+        <span>{{ time.nomeTime }}</span>
+    </div>
+    <div class="boards">
+        <span>Projetos: {{ time.projetosTime }}</span>
+    </div>
+    <div class="users">
+        <span>Membros: {{ time.davi }}, {{ time.dhiego }}, {{ time.guilherme }}, {{ time.yuri }} </span>
     </div>
     <div class="options">
         <i class="material-icons">create</i>

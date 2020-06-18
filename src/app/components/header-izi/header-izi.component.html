@@ -1,6 +1,6 @@
 <div class="container">
     <div class="header">
-        <div class="logo" (click)="redirectMenu()">
+        <div class="logo" (click)="redirectDashboard()">
             <img src="./../../../assets/logo-izi.png">
         </div>
         <div class="header-descricao">
@@ -8,12 +8,13 @@
         </div>
         <div class="user">
             <div class="user-foto">
-                <span class="material-icons">account_circle</span>
+                <!-- <span class="material-icons">account_circle</span> -->
+                <img style="height: 5vh;" src="../../../assets/user.png">
             </div>
             <div class="header-account">
-                <span class="user-name">Olá, Guilherme</span>
+                <span class="user-name">Olá, Davi</span>
                 <span></span>
-                <span class="header-account-link" matTooltip="Em breve">Configurações</span>
+                <span class="header-account-link" style="color: #a9a9a9;" matTooltip="Em breve">Configurações</span>
                 <span class="header-account-link" (click)="redirectLanding()">Sair</span>
             </div>
         </div>

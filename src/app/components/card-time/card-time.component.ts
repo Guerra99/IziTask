@@ -11,7 +11,16 @@ export class CardTimeComponent implements OnInit {
 
   constructor() { }
 
-  @Input() times: Equipe[];
+  @Input() equipe: any;
+
+  nomeTime = '';
+  projetosTime = '';
+  dm = '';
+  dr = '';
+  gg = '';
+  yb = '';
+
+  time: any;
 
   teams: Equipe[] = [
     {
@@ -37,11 +46,14 @@ export class CardTimeComponent implements OnInit {
   membrosTime = [];
 
   ngOnInit(): void {
-    this.teams.forEach(x => {
-      x.membros.forEach(i => {
-        this.membrosTime.push(i.nome);
-      });
-    });
+    this.time = JSON.parse(localStorage.getItem('TIME'));
+    console.log(this.time);
+    // this.nomeTime = localStorage.getItem('nomeTime');
+    // this.projetosTime = localStorage.getItem('projetosTime');
+    // this.dm = localStorage.getItem('Davi');
+    // this.dr = localStorage.getItem('Dhiego');
+    // this.gg = localStorage.getItem('Guilherme');
+    // this.yb = localStorage.getItem('Yuri');
   }
 
 }

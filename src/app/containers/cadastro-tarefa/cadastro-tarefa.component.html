@@ -3,7 +3,7 @@
     <div style="border-bottom: 1px solid #D5D5D5;
     font-size: 30px;
     padding: 15px;">
-        <span>{{quadroSelecionado.nomeQuadro}}</span>
+        <span>{{quadro.nomeQuadro}}</span>
     </div>
     <div style="display: flex">
         <div style="padding: 5vh;">
@@ -23,58 +23,42 @@
                 background-color: #00ACA1;
                 padding: 10px;
                 color: white; justify-content: space-between;">
-                    <span>{{ quadroSelecionado.equipe.nome }}</span>
-                    <span class="material-icons">add</span>
+                    <span>{{ quadro.time }}</span>
+                    <!-- <span class="material-icons">add</span> -->
                 </div>
-                <!-- <div style="height: 30px;
-                display: flex;
-                align-items: center;
-                background-color: greenyellow;
-                padding: 10px; color: white; justify-content: space-between;">
-                    <span>TIME 2</span>
-                    <span class="material-icons">add</span>
-                </div>
-                <div style="height: 30px;
-                display: flex;
-                align-items: center;
-                background-color: red;
-                padding: 10px; color: white; justify-content: space-between;">
-                    <span>TIME 3</span>
-                    <span class="material-icons">add</span>
-                </div>
-                <div style="height: 30px;
-                display: flex;
-                align-items: center;
-                background-color: aqua;
-                padding: 10px; color: white; justify-content: space-between;">
-                    <span>TIME 4</span>
-                    <span class="material-icons">add</span>
-                </div> -->
             </div>
         </div>
-        <div style="display: flex;
+        <form [formGroup]="tarefaForm" (ngSubmit)="cadastrarTarefa(tarefaForm.value)">
+            <div style="display: flex;
         flex-direction: column;
         justify-content: space-around;
         width: 50vw; padding-top: 3vh;">
-            <div style="display: flex;
+                        <div style="display: flex;
+                        flex-direction: column;">
+                                <span style="color: #7E7E7E;">Título</span>
+                                <input style="border:1px solid #CFCFCF; outline: none; border-radius: 6px; height: 30px;
+                            padding: 5px;" [formControl]="tarefaForm.get('titulo')">
+                            </div>
+                <div style="display: flex;
             flex-direction: column;">
-                <span style="color: #7E7E7E;">Descrição</span>
-                <textarea rows="10"
-                    style="border:1px solid #CFCFCF; outline: none; border-radius: 6px; padding: 5px;"></textarea>
-            </div>
-            <div style="display: flex;
+                    <span style="color: #7E7E7E;">Descrição</span>
+                    <textarea rows="10"
+                        style="border:1px solid #CFCFCF; outline: none; border-radius: 6px; padding: 5px;" [formControl]="tarefaForm.get('descricao')"></textarea>
+                </div>
+                <div style="display: flex;
             flex-direction: column;">
-                <span style="color: #7E7E7E;">Responsável</span>
-                <input style="border:1px solid #CFCFCF; outline: none; border-radius: 6px; height: 30px;
-                padding: 5px;">
-            </div>
-            <div style="    display: flex;
+                    <span style="color: #7E7E7E;">Responsável</span>
+                    <input style="border:1px solid #CFCFCF; outline: none; border-radius: 6px; height: 30px;
+                padding: 5px;" [formControl]="tarefaForm.get('responsavel')">
+                </div>
+                <div style="    display: flex;
             justify-content: flex-end;">
-                <button
-                    style="margin: 5px;padding: 10px;border: none; background-color: #949494; color: white; border-radius: 6px;">CANCELAR</button>
-                <button
-                    style="margin: 5px; padding: 10px;border: none; background-color: #424CD6; color: white; border-radius: 6px;">CONFIRMAR</button>
+                    <button
+                        style="margin: 5px;padding: 10px;border: none; background-color: #949494; color: white; border-radius: 6px;">CANCELAR</button>
+                    <button type="submit"
+                        style="margin: 5px; padding: 10px;border: none; background-color: #424CD6; color: white; border-radius: 6px;">CONFIRMAR</button>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>

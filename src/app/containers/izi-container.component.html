@@ -1,22 +1,35 @@
 <app-modal-invite [show]="showModalInvite" (fecharModalInviteEvent)="fecharModalInvite()"></app-modal-invite>
+<app-modal [show]="showModal" [modalConfiguration]="modalConfiguration"></app-modal>
 <app-landing-page *ngIf="painelLanding" (openLogin)="openLogin()" (openCadastroUsuario)="openCadastroUsuario()">
 </app-landing-page>
-<app-login *ngIf="painelLogin" (openMenuQuadrosEvent)="openMenuQuadros()" (openLandingEvent)="openLanding()"
+<app-login *ngIf="painelLogin" (openMenuQuadrosEvent)="openMenuQuadros($event)" (openLandingEvent)="openLanding()"
     (openCadastroUsuarioEvent)="openCadastroUsuario()"></app-login>
 <app-cadastro-usuario *ngIf="painelCadastroUsuario" (openLandingEvent)="openLanding()" (openLoginEvent)="openLogin()">
 </app-cadastro-usuario>
 <div *ngIf="!painelLanding && !painelLogin && !painelCadastroUsuario">
-    <app-header-izi (redirectMenuEvent)="openMenuQuadros()" (redirectLandingEvent)="openLanding()"></app-header-izi>
+    <app-header-izi [usuario]="contaLogada" (redirectDashboardEvent)="openDashboard()"
+        (redirectLandingEvent)="openLanding()"></app-header-izi>
     <div style="display: flex;">
-        <app-sidebar *ngIf="painelMenuQuadros || painelMeuIzi || painelNovoTime"
-            (openMenuQuadrosEvent)="openMenuQuadros()" (openMeuIziEvent)="openMeuIzi()"
-            (openNovoTimeEvent)="openNovoTime()" (modalEvent)="openModalInvite()" [itemSidebar]="sidebarItem"></app-sidebar>
-        <app-menu-quadros *ngIf="painelMenuQuadros" (openQuadroBacklogEvent)="openQuadroBacklog($event)">
+        <app-sidebar *ngIf="painelMenuQuadros || painelMeuIzi || painelNovoTime || painelDashboard"
+            (openDashboardEvent)="openDashboard()" (openMenuQuadrosEvent)="openMenuQuadros($event)"
+            (openMeuIziEvent)="openMeuIzi()" (openNovoTimeEvent)="openNovoTime()" (modalEvent)="openModalInvite()"
+            [itemSidebar]="sidebarItem">
+        </app-sidebar>
+        <app-dashboard *ngIf="painelDashboard"></app-dashboard>
+        <app-menu-quadros *ngIf="painelMenuQuadros" [usuario]="contaLogada"
+            (openQuadroBacklogEvent)="openQuadroBacklog($event)" (openCriarQuadroEvent)="openCadastroQuadro()">
         </app-menu-quadros>
         <app-meu-izi *ngIf="painelMeuIzi"></app-meu-izi>
-        <app-novo-time *ngIf="painelNovoTime"></app-novo-time>
+        <app-novo-time *ngIf="painelNovoTime" (openDashboard)="openDashboard()" (openModal)="openModal($event)"></app-novo-time>
     </div>
-    <app-quadro-backlog *ngIf="painelQuadroBacklog" [quadroSelecionado]="quadroSelecionado" (openTarefaDetalheEvent)="openTarefaDetalhe($event)" (openCadastroTarefaEvent)="openCadastroTarefa($event)"></app-quadro-backlog>
-    <app-cadastro-tarefa [quadroSelecionado]="quadroSelecionado" *ngIf="painelCadastroTarefa"></app-cadastro-tarefa>
-    <app-detalhe-tarefa [tarefaSelecionada]="tarefaSelecionada" (voltarQuadroBacklogEvent)="openQuadroBacklog($event)" *ngIf="painelTarefaDetalhe"></app-detalhe-tarefa>
+    <app-quadro-backlog *ngIf="painelQuadroBacklog" [quadroSelecionado]="quadroSelecionado"
+        (openTarefaDetalheEvent)="openTarefaDetalhe($event)" (openCadastroTarefaEvent)="openCadastroTarefa($event)"
+        (voltarMenuQuadrosEvent)="openMenuQuadros($event)">
+    </app-quadro-backlog>
+    <app-cadastro-tarefa [quadroSelecionado]="quadroSelecionado" (voltarBacklogEvent)="openQuadroBacklog($event)"
+        *ngIf="painelCadastroTarefa"></app-cadastro-tarefa>
+    <app-detalhe-tarefa [tarefaSelecionada]="tarefaSelecionada" (voltarQuadroBacklogEvent)="openQuadroBacklog($event)"
+        *ngIf="painelTarefaDetalhe"></app-detalhe-tarefa>
+    <app-cadastro-quadro *ngIf="painelCadastroQuadro" (fecharCadastroQuadroEvent)="openMenuQuadros($event)"
+        [usuarioLogado]="contaLogada"></app-cadastro-quadro>
 </div>

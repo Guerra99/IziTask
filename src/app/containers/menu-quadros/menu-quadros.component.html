@@ -2,5 +2,6 @@
 <div style="display: flex">
     <!-- <app-sidebar>
     </app-sidebar> -->
-    <app-quadros (quadroSelecionadoEvent)="openBacklog($event)"></app-quadros>
+    <app-quadros (quadroSelecionadoEvent)="openBacklog()" (openCadastroQuadroEvent)="addQuadro()">
+    </app-quadros>
 </div>

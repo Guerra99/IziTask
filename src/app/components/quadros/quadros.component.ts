@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Quadro } from 'src/app/models/quadro.model';
 import { IziService } from 'src/app/services/izi.service';
 import { ThrowStmt } from '@angular/compiler';
+import { Tarefa } from 'src/app/models/tarefa.model';
 
 @Component({
   selector: 'app-quadros',
@@ -11,7 +12,8 @@ import { ThrowStmt } from '@angular/compiler';
 export class QuadrosComponent implements OnInit {
 
   // @Input() quadros: [] = [];
-  @Output() quadroSelecionadoEvent: EventEmitter<Quadro> = new EventEmitter<Quadro>();
+  @Output() quadroSelecionadoEvent: EventEmitter<void> = new EventEmitter<void>();
+  @Output() openCadastroQuadroEvent: EventEmitter<void> = new EventEmitter<void>();
 
   quadros: Quadro[] =
     [
@@ -33,56 +35,72 @@ export class QuadrosComponent implements OnInit {
           membros: [{ id: '1', nome: 'Guilherme', sobrenome: 'Guerra', email: 'guilherme@hotmail.com', senha: '123456', logado: true }]
         }, tarefasToDo: 0, tarefasProgress: 0, tarefasDone: 0
       }
-      // { idQuadro: '2', nomeQuadro: 'Criar endpoints', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } },
-      // { idQuadro: '3', nomeQuadro: 'Layout da web', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } },
-      // { idQuadro: '4', nomeQuadro: 'Componentizar a web', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } },
-      // { idQuadro: '5', nomeQuadro: 'Fazer conexão com os endpoints', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } },
-      // { idQuadro: '6', nomeQuadro: 'Preparar querys', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } },
-      // { idQuadro: '7', nomeQuadro: 'Dashboard', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } },
-      // { idQuadro: '8', nomeQuadro: 'Preparar querys', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } },
-      // { idQuadro: '9', nomeQuadro: 'Bugs do app', idsTarefas: [], favorito: false, equipe: { nome: '', membros: [] } }
     ];
 
   tarefasToDo = 0;
   tarefasProgress = 0;
   tarefasDone = 0;
 
-  quadrosFavoritos: Quadro[] = [];
+  quadrosFavoritos = [];
+
+  meusQuadros: Quadro[] = [];
+
+  projeto: any;
+  quadroFav = false;
 
   constructor(private iziService: IziService) { }
 
   ngOnInit(): void {
-    this.classificarTarefas();
+    this.projeto = JSON.parse(localStorage.getItem('QUADRO'));
+    // this.classificarTarefas();
+    // if (JSON.parse(this.iziService.getQuadros('QUADRO'))) {
+    //   this.meusQuadros.push(JSON.parse(this.iziService.getQuadros('QUADRO')));
+    // } else {
+    //   this.meusQuadros = [];
+    // }
   }
 
-  addFavorito(quadro: Quadro) {
+  addFavorito(quadro) {
     if (this.quadrosFavoritos.find(x => x.nomeQuadro === quadro.nomeQuadro)) {
-      const index = this.quadrosFavoritos.indexOf(quadro);
-      const indexQuadros = this.quadros.indexOf(quadro);
-      this.quadros[indexQuadros].favorito = false;
-      this.quadrosFavoritos.splice(index, 1);
+      // const index = this.quadrosFavoritos.indexOf(quadro);
+      // const indexQuadros = this.quadros.indexOf(quadro);
+      // this.quadros[indexQuadros].favorito = false;
+      // this.quadrosFavoritos.splice(index, 1);
+      this.projeto.favorito = false;
+      this.quadrosFavoritos.pop();
+      this.quadroFav = false;
+
     } else {
-      quadro.favorito = true;
+      this.projeto.favorito = true;
       this.quadrosFavoritos.push(quadro);
+      this.quadroFav = true;
     }
   }
 
-  onClickQuadro(quadro: Quadro) {
-    this.quadroSelecionadoEvent.emit(quadro);
+  onClickQuadro() {
+    this.quadroSelecionadoEvent.emit();
   }
 
   classificarTarefas() {
     this.quadros.forEach(item => {
-      const tarefasQuadro = this.iziService.getTarefas(item.idQuadro);
-      tarefasQuadro.forEach(task => {
-        if (task.status === 'TODO') {
-          item.tarefasToDo++;
-        } else if (task.status === 'PROGRESS') {
-          item.tarefasProgress++;
-        } else {
-          item.tarefasDone++;
-        }
-      });
+      let tarefasQuadro: Tarefa[] = this.iziService.getTarefa(item.idQuadro);
+      if (tarefasQuadro) {
+        tarefasQuadro.forEach(task => {
+          if (task.status === 'TODO') {
+            item.tarefasToDo++;
+          } else if (task.status === 'PROGRESS') {
+            item.tarefasProgress++;
+          } else {
+            item.tarefasDone++;
+          }
+        });
+      } else {
+        tarefasQuadro = [];
+      }
     });
+  }
+
+  openCadastroQuadro() {
+    this.openCadastroQuadroEvent.emit();
   }
 }

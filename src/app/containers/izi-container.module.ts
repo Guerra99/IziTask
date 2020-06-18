@@ -23,7 +23,10 @@ import { IziContainerRoutingModule } from './izi-container-routing.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { IziService } from '../services/izi.service';
+import { CadastroQuadroComponent } from './cadastro-quadro/cadastro-quadro.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
     imports: [
@@ -38,7 +41,7 @@ import { IziService } from '../services/izi.service';
         SidebarModule,
         MatMenuModule,
         MatIconModule,
-        // IziContainerRoutingModule
+        MatExpansionModule
     ],
     exports: [
         IziContainerComponent,
@@ -50,7 +53,9 @@ import { IziService } from '../services/izi.service';
         DetalheTarefaComponent,
         LandingPageComponent,
         LoginComponent,
-        CadastroUsuarioComponent
+        CadastroUsuarioComponent,
+        CadastroQuadroComponent,
+        DashboardComponent
     ],
     declarations: [
         IziContainerComponent,
@@ -62,7 +67,9 @@ import { IziService } from '../services/izi.service';
         DetalheTarefaComponent,
         LandingPageComponent,
         LoginComponent,
-        CadastroUsuarioComponent
+        CadastroUsuarioComponent,
+        CadastroQuadroComponent,
+        DashboardComponent
     ],
     providers: [IziService],
 })

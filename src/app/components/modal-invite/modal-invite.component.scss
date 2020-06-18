@@ -45,12 +45,12 @@ $dark-gray: #707070;
             border-radius: 25px;
 
             > button {
-                background-color: #424cd6;
+                background-color: #cccccc;
                 border-radius: 25px;
                 color: white;
                 width: 20vw;
                 border: none;
-                cursor: pointer;
+                cursor: not-allowed;
             }
         }
     }

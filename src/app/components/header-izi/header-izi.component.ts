@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { AuthGuardService } from 'src/app/services/auth-guard.service';
 import { Conta } from 'src/app/models/conta.model';
+import { IziService } from 'src/app/services/izi.service';
 
 @Component({
   selector: 'app-header-izi',
@@ -9,15 +10,14 @@ import { Conta } from 'src/app/models/conta.model';
 })
 export class HeaderIziComponent implements OnInit {
 
-  usuario: Conta;
-
-  @Output() redirectMenuEvent: EventEmitter<void> = new EventEmitter<void>();
+  @Input() usuario: Conta;
+  @Output() redirectDashboardEvent: EventEmitter<void> = new EventEmitter<void>();
   @Output() redirectLandingEvent: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor(private authService: AuthGuardService) { }
+  constructor(private iziService: IziService) { }
 
   ngOnInit(): void {
-    // this.usuario = this.authService.buscarUsuarioLogado();
+
   }
 
   usuarioLogado() {
@@ -28,8 +28,8 @@ export class HeaderIziComponent implements OnInit {
     // this.authService.deslogar(this.usuario);
   }
 
-  redirectMenu() {
-    this.redirectMenuEvent.emit();
+  redirectDashboard() {
+    this.redirectDashboardEvent.emit();
   }
 
   redirectLanding() {

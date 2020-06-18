@@ -5,6 +5,8 @@ import { CREATE_ACCOUNT_MUTATION } from '../../services/graphql';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalConfigurationInterface } from 'src/app/components/modal/modal.configuration.interface';
 import { ModalType } from 'src/app/components/modal/modal.-type.enum';
+import { IziService } from 'src/app/services/izi.service';
+import { Conta } from 'src/app/models/conta.model';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -34,7 +36,10 @@ export class CadastroUsuarioComponent implements OnInit {
     buttons: [
       {
         text: 'Fechar',
-        callback: () => { this.showModal = false; }
+        callback: () => {
+          this.showModal = false;
+          this.usuarioForm.reset();
+        }
       }
     ]
   };
@@ -43,10 +48,12 @@ export class CadastroUsuarioComponent implements OnInit {
 
   usuarioForm: FormGroup;
 
+  usuarioLogado = '';
+
   @Output() openLandingEvent: EventEmitter<void> = new EventEmitter<void>();
   @Output() openLoginEvent: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor(private router: Router, private apollo: Apollo, private fb: FormBuilder) {
+  constructor(private router: Router, private apollo: Apollo, private fb: FormBuilder, private iziService: IziService) {
     this.usuarioForm = this.fb.group({
       nome: ['', Validators.required],
       sobrenome: ['', Validators.required],
@@ -73,6 +80,18 @@ export class CadastroUsuarioComponent implements OnInit {
       }
     }).subscribe(x => {
       this.showModal = true;
+
+      const contaUsuario: Conta = {
+        id: '1',
+        email: this.usuarioForm.get('email').value,
+        nome: this.usuarioForm.get('nome').value,
+        sobrenome: this.usuarioForm.get('sobrenome').value,
+        senha: this.usuarioForm.get('senha').value,
+        logado: true
+      };
+
+      this.iziService.criarUsuarioConta(this.usuarioForm.get('email').value, contaUsuario);
+
       this.modalConfig = this.modalSucess;
     }, (error) => {
       this.showModal = true;

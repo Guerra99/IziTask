@@ -6,6 +6,7 @@ import { SidebarModule } from '../../components/sidebar/sidebar.module';
 import { QuadrosModule } from '../../components/quadros/quadros.module';
 import { CardTimeModule } from 'src/app/components/card-time/card-time.module';
 import { ModalInviteModule } from 'src/app/components/modal-invite/modal-invite.module';
+import { ModalModule } from '../../components/modal/modal.module'
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import { ModalInviteModule } from 'src/app/components/modal-invite/modal-invite.
         SidebarModule,
         QuadrosModule,
         CardTimeModule,
-        ModalInviteModule
+        ModalInviteModule,
+        ModalModule
     ],
     exports: [
         NovoTimeComponent

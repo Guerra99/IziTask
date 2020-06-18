@@ -1,10 +1,10 @@
-<app-modal [show]="showModal" [modalConfiguration]="modalConfig"></app-modal>
+<!-- <app-modal [show]="showModal" [modalConfiguration]="modalConfig"></app-modal> -->
 <!-- <app-header-izi></app-header-izi> -->
 <div style="padding: 10vh;">
     <div style="border-bottom: 1px solid #D5D5D5;
     font-size: 30px;
     padding: 15px;">
-        <span>{{ nomeQuadro }}</span>
+        <span>{{ quadro.nomeQuadro }}</span>
     </div>
     <div style="display: flex;">
         <div style="display: flex; flex-direction: column; width: 15vw;">
@@ -21,18 +21,16 @@
                 <div style="display: flex; flex-direction: column;">
                     <span>Mover para:</span>
                     <select>
-                        <option>To Do</option>
-                        <option>Progress</option>
-                        <option>Done</option>
+                        <option (click)="moveToDo(tarefaSelecionada)">To Do</option>
+                        <option (click)="moveProgress(tarefaSelecionada)">Progress</option>
+                        <option (click)="moveDone(tarefaSelecionada)">Done</option>
                     </select>
-                    <!-- <input> -->
                 </div>
                 <div style="display: flex; flex-direction: column; padding-top: 5vh;">
                     <span>Trocar time</span>
                     <select>
-                        <option>Dev</option>
+                        <option>BackEnd</option>
                     </select>
-                    <!-- <input> -->
                 </div>
                 <div style="display: flex; flex-direction: column; padding-top: 5vh; height: 10vh;
                 justify-content: space-around;">
@@ -53,6 +51,11 @@
         flex-direction: column;
         justify-content: space-between;">
             <div style="display: flex;
+                    flex-direction: column;">
+                <span style="color: #7E7E7E;">Título</span>
+                <input style="border:1px solid #CFCFCF; outline: none; border-radius: 6px; padding: 5px;">
+            </div>
+            <div style="display: flex;
         flex-direction: column;">
                 <span style="color: #7E7E7E;">Descrição</span>
                 <textarea rows="10"
@@ -70,7 +73,7 @@
                 background-color: #424CD6;
                 color: white;
                 padding: 10px;
-                border-radius: 6px; cursor: pointer;">Confirmar</button>
+                border-radius: 6px; cursor: pointer;" (click)="voltarQuadroBacklog()">Confirmar</button>
             </div>
         </div>
     </div>

@@ -5,9 +5,9 @@
     </div>
     <div>
         <div class="container">
-            <div class="quadro-container" *ngFor="let fav of quadrosFavoritos">
-                <div style="cursor: pointer;" (click)="onClickQuadro(fav)">
-                    <span class="nome-quadro">{{ fav.nomeQuadro }}</span>
+            <div class="quadro-container">
+                <div style="cursor: pointer;">
+                    <span class="nome-quadro">{{ projeto.nomeQuadro }}</span>
                 </div>
                 <div style="display: flex;
                 align-items: center;
@@ -15,23 +15,26 @@
                 color: #0b4d89;
                 font-weight: bold;">
                     <span class="material-icons" style="font-size: 16px; padding: 5px;">group</span>
-                    <span>{{ fav.equipe.nome }}</span>
+                    <span>{{ projeto.time }}</span>
                 </div>
                 <div class="quadro-fav">
-                    <div style="display: flex; align-items: center; color: #0b4d89; font-weight: bold;" matTooltip="To Do">
+                    <div style="display: flex; align-items: center; color: #0b4d89; font-weight: bold;"
+                        matTooltip="To Do">
                         <span class="material-icons" style="font-size: 21px;">list</span>
-                        <span style="font-size: 14px;">{{ fav.tarefasToDo }}</span>
+                        <span style="font-size: 14px;">{{ projeto.todo }}</span>
                     </div>
-                    <div style="display: flex; align-items: center; color: #0b4d89; font-weight: bold;" matTooltip="Progress">
+                    <div style="display: flex; align-items: center; color: #0b4d89; font-weight: bold;"
+                        matTooltip="Progress">
                         <span class="material-icons" style="font-size: 21px;">loop</span>
-                        <span style="font-size: 14px;">{{ fav.tarefasProgress }}</span>
+                        <span style="font-size: 14px;">{{ projeto.progress }}</span>
                     </div>
-                    <div style="display: flex; align-items: center; color: #0b4d89; font-weight: bold;" matTooltip="Done">
+                    <div style="display: flex; align-items: center; color: #0b4d89; font-weight: bold;"
+                        matTooltip="Done">
                         <span class="material-icons" style="font-size: 21px;">check_box</span>
-                        <span style="font-size: 14px;">{{ fav.tarefasDone }}</span>
+                        <span style="font-size: 14px;">{{ projeto.done }}</span>
                     </div>
-                    <span class="material-icons" (click)="addFavorito(fav)" *ngIf="fav.favorito">star</span>
-                    <span class="material-icons" (click)="addFavorito(fav)" *ngIf="!fav.favorito">star_outline</span>
+                    <span class="material-icons" (click)="addFavorito(projeto)" *ngIf="quadroFav">star</span>
+                    <span class="material-icons" (click)="addFavorito(projeto)" *ngIf="!quadroFav">star_outline</span>
                 </div>
             </div>
         </div>
@@ -43,7 +46,7 @@
         <span style="padding-left: 5px; font-size: 18px;">Quadros</span>
     </div>
     <div class="container">
-        <div *ngFor="let quadro of quadros" class="quadro-container">
+        <!-- <div *ngFor="let quadro of quadros" class="quadro-container">
             <div style="cursor: pointer;" (click)="onClickQuadro(quadro)">
                 <span class="nome-quadro">{{ quadro.nomeQuadro }}</span>
             </div>
@@ -60,7 +63,8 @@
                     <span class="material-icons" style="font-size: 21px;">list</span>
                     <span style="font-size: 14px;">{{ quadro.tarefasToDo }}</span>
                 </div>
-                <div style="display: flex; align-items: center; color: #0b4d89; font-weight: bold;" matTooltip="Progress">
+                <div style="display: flex; align-items: center; color: #0b4d89; font-weight: bold;"
+                    matTooltip="Progress">
                     <span class="material-icons" style="font-size: 21px;">loop</span>
                     <span style="font-size: 14px;">{{ quadro.tarefasProgress }}</span>
                 </div>
@@ -71,8 +75,38 @@
                 <span class="material-icons" (click)="addFavorito(quadro)" *ngIf="quadro.favorito">star</span>
                 <span class="material-icons" (click)="addFavorito(quadro)" *ngIf="!quadro.favorito">star_outline</span>
             </div>
+        </div> -->
+        <div class="quadro-container" *ngIf="projeto">
+            <div style="cursor: pointer;" (click)="onClickQuadro()">
+                <span class="nome-quadro">{{ projeto.nomeQuadro }}</span>
+            </div>
+            <div style="display: flex;
+            align-items: center;
+            border-bottom: 1px dotted #00ACA1;
+            color: #0b4d89;
+            font-weight: bold;">
+                <span class="material-icons" style="font-size: 16px; padding: 5px;">group</span>
+                <span>{{ projeto.time }}</span>
+            </div>
+            <div class="quadro-fav">
+                <div style="display: flex; align-items: center; color: #0b4d89; font-weight: bold;" matTooltip="To Do">
+                    <span class="material-icons" style="font-size: 21px;">list</span>
+                    <span style="font-size: 14px;">{{ projeto.todo }}</span>
+                </div>
+                <div style="display: flex; align-items: center; color: #0b4d89; font-weight: bold;"
+                    matTooltip="Progress">
+                    <span class="material-icons" style="font-size: 21px;">loop</span>
+                    <span style="font-size: 14px;">{{ projeto.progress }}</span>
+                </div>
+                <div style="display: flex; align-items: center; color: #0b4d89; font-weight: bold;" matTooltip="Done">
+                    <span class="material-icons" style="font-size: 21px;">check_box</span>
+                    <span style="font-size: 14px;">{{ projeto.done }}</span>
+                </div>
+                <span class="material-icons" (click)="addFavorito(projeto)" *ngIf="quadroFav">star</span>
+                <span class="material-icons" (click)="addFavorito(projeto)" *ngIf="!quadroFav">star_outline</span>
+            </div>
         </div>
-        <div class="quadro-add">
+        <div class="quadro-add" (click)="openCadastroQuadro()">
             <span class="material-icons" style="color: #a9a9a9; font-size: 50px;">add</span>
         </div>
     </div>

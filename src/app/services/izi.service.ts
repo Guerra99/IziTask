@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Tarefa } from '../models/tarefa.model';
 import { Quadro } from '../models/quadro.model';
+import { Conta } from '../models/conta.model';
 
 @Injectable()
 export class IziService {
@@ -41,7 +42,9 @@ export class IziService {
             }
         ];
 
-    getTarefas(idQuadro: string) {
+    contaUsuario: Conta = null;
+
+    getTarefa(idQuadro: string) {
         const task: Tarefa[] = [];
         this.tarefas.forEach(x => {
             if (x.idQuadro === idQuadro) {
@@ -51,7 +54,39 @@ export class IziService {
         return task;
     }
 
-    getQuadros() {
+    getQuadro() {
         return this.quadros;
+    }
+
+    criarUsuarioConta(emailUser: string, inputUsuario: Conta) {
+        localStorage.setItem(emailUser, JSON.stringify(inputUsuario));
+    }
+
+    getUsuarioConta(emailUser: string) {
+        return localStorage.getItem(emailUser);
+    }
+
+    criarQuadro(nomeQuadro: string, inputQuadro: Quadro) {
+        localStorage.setItem(nomeQuadro, JSON.stringify(inputQuadro));
+    }
+
+    getQuadros(nomeQuadro: string) {
+        return localStorage.getItem(nomeQuadro);
+    }
+
+    criarTarefa(nomeTarefa: string, inputTarefa: Tarefa) {
+        localStorage.setItem(nomeTarefa, JSON.stringify(inputTarefa));
+    }
+
+    getTarefas(nomeTarefa: string) {
+        return localStorage.getItem(nomeTarefa);
+    }
+
+    criarTime(key: string, inputTime: any) {
+        localStorage.setItem(key, JSON.stringify(inputTime));
+    }
+
+    getTime(key: string) {
+        localStorage.getItem(key);
     }
 }

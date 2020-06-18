@@ -13,11 +13,11 @@ export class DetalheTarefaComponent implements OnInit {
 
   constructor(private iziService: IziService) { }
 
-  @Input() tarefaSelecionada: Tarefa;
+  @Input() tarefaSelecionada: any;
   @Output() voltarQuadroBacklogEvent: EventEmitter<void> = new EventEmitter<void>();
 
   showModal = false;
-  nomeQuadro = '';
+  quadro: any;
 
   modalConfig: ModalConfigurationInterface = {
     modalType: ModalType.warning,
@@ -35,7 +35,8 @@ export class DetalheTarefaComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.nomeQuadro = this.iziService.getQuadros().find(x => x.idQuadro === this.tarefaSelecionada.idQuadro).nomeQuadro;
+    this.quadro = JSON.parse(localStorage.getItem('QUADRO'));
+    // this.nomeQuadro = this.iziService.getQuadro().find(x => x.idQuadro === this.tarefaSelecionada.idQuadro).nomeQuadro;
   }
 
   openModal() {
@@ -44,5 +45,48 @@ export class DetalheTarefaComponent implements OnInit {
 
   voltarQuadroBacklog() {
     this.voltarQuadroBacklogEvent.emit();
+  }
+
+  moveToDo(tarefa) {
+    console.log(tarefa);
+    if (tarefa.titulo === 'TAREFA1') {
+      tarefa.status = 'TODO';
+      localStorage.setItem('TAREFA1', tarefa);
+
+    } else if (tarefa.titulo === 'TAREFA2') {
+      tarefa.status = 'TODO';
+      localStorage.setItem('TAREFA2', tarefa);
+    } else {
+      tarefa.status = 'TODO';
+      localStorage.setItem('TAREFA3', tarefa);
+    }
+  }
+
+  moveProgress(tarefa) {
+    if (tarefa.titulo === 'TAREFA1') {
+      tarefa.status = 'PROGRESS';
+      localStorage.setItem('TAREFA1', tarefa);
+
+    } else if (tarefa.titulo === 'TAREFA2') {
+      tarefa.status = 'PROGRESS';
+      localStorage.setItem('TAREFA2', tarefa);
+    } else {
+      tarefa.status = 'PROGRESS';
+      localStorage.setItem('TAREFA3', tarefa);
+    }
+  }
+
+  moveDone(tarefa) {
+    if (tarefa.titulo === 'TAREFA1') {
+      tarefa.status = 'DONE';
+      localStorage.setItem('TAREFA1', tarefa);
+
+    } else if (tarefa.titulo === 'TAREFA2') {
+      tarefa.status = 'DONE';
+      localStorage.setItem('TAREFA2', tarefa);
+    } else {
+      tarefa.status = 'DONE';
+      localStorage.setItem('TAREFA3', tarefa);
+    }
   }
 }
